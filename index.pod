@@ -1,0 +1,41 @@
+=pod
+
+=encoding UTF-8
+
+=head1 ABOUT
+
+Hi, I'm Alexandr Savca.
+
+GNU/Linux and DFlyBSD fan, programmer, bug bounty hunter, FLOSS
+enthusiast and qr/kiss|suckless|worse is better/ software fan.
+
+=over
+
+=item L<CV|https://sighook.github.io/cv.html>
+
+=item L<PGP|https://sighook.github.io/key.html>
+
+=item L<Projects|https://sighook.github.io/projects.html>
+
+=back
+
+=head1 Contact information
+
+=over
+
+=item L<E-Mail|mailto:alexandr.savca89@gmail.com>
+
+=item L<LinkedIn|https://linkedin.com/in/alexandr-savca89>
+
+=item L<Github|https://github.com/sighook>
+
+=item L<HackerOne|https://hackerone.com/sighook>
+
+=back
+
+=cut
+
+# vim:sw=2:ts=2:sts=2:et:cc=72:tw=70
+# End of file.
+
+

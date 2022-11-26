@@ -1,0 +1,211 @@
+=pod
+
+=encoding UTF-8
+
+=head1 About
+
+Alexandr Savca - Programmer, Information Security Engineer.
+
+=over 10
+
+=item Homepage
+
+L<https://sighook.github.io>
+
+=item E-Mail
+
+L<mailto://alexandr.savca89@gmail.com>
+
+=item LinkedIn
+
+L<https://linkedin.com/in/alexandr-savca89>
+
+=item Github
+
+L<https://github.com/sighook>
+
+=item HackerOne
+
+L<https://hackerone.com/sighook>
+
+=back
+
+=head1 Experience
+
+=head2 Information Security Engineer
+
+=head3 Jan 2020 - Present (Freelance)
+
+=over
+
+=item *
+
+Perform penetration testing and vulnerability research.
+
+=item *
+
+Develop attack/verification tools and exploits for discovered
+vulnerabilities.
+
+=item *
+
+Develop and maintain standard operating process documentations to
+enable knowledge transfer, cross-training, and recovery needs.
+
+=item *
+
+Improve security technology operation and integration through custom
+scripts development.
+
+=item *
+
+Perform scanning, patching, and remediation activities.
+
+=item *
+
+Develop and maintain software-patches to improve security defense and
+analysis (Linux Kernel, Nmap, Aircrack-ng, etc).
+
+=item *
+
+Maintain security tools for the Linux-based Operation System.
+
+=back
+
+=head2 Information Security Engineer
+
+=head3 Jan 2018 - Nov 2019 (Salt Edge - Open Banking API)
+
+=over
+
+=item *
+
+Perform testing of security-sensitive projects and solutions delivery,
+manual code inspection, threat modeling, and penetration testing of
+internal web applications to identify vulnerabilities and security
+defects.
+
+=item *
+
+Support the implementation and enforcement of secure design principles
+according to policies, standards, and patterns of Information
+Security.
+
+=item *
+
+Perform secure code/design review, assist to mitigate vulnerabilities
+and attack vectors in web applications.
+
+=item *
+
+Conduct white box security testing to assess and validate application
+security.
+
+=item *
+
+Define, maintain, and enforce application security best practices.
+
+=item *
+
+Develop and conduct the Bug Bounty program.
+
+=back
+
+=head2 System Programmer
+
+=head3 Sep 2016 - Feb 2017 (Freelance)
+
+=over
+
+=item *
+
+Deep Packet Introspection, Reverse engineering.
+
+=item *
+
+Writing traffic analyzer plugins for Bro/Zeek IDS for various
+protocols.
+
+=item *
+
+Reversing Oracle TNS Protocol.
+
+=back
+
+=head2 System Administrator
+
+=head3 2012 - Jan 2017 (Freelance)
+
+=head4 Environment: GNU/Linux.
+
+=over
+
+=item *
+
+Configuration of Network Protocols.
+
+=item *
+
+Software installation and configuration.
+
+=item *
+
+Created scripts for monitor systems and automation of daily tasks and
+customer requests.
+
+=item *
+
+Installation and configuration of security packages.
+
+=item *
+
+Tuning kernel parameters for performance improvement.
+
+=item *
+
+Install patches and upgrading of O/S as and when required.
+
+=item *
+
+Maintain local O/S applications and patch depots.
+
+=item *
+
+Implement Backup/Recovery strategies.
+
+=item *
+
+Network traffic analysis and recommendation for performance
+improvement.
+
+=item *
+
+Maintain DNS, VPN, Web, DB & Mail Servers.
+
+=item *
+
+Develop of low-level tools in C, higher level interfaces using Tcl/Tk,
+shell programming and Perl.
+
+=back
+
+=head1 Education
+
+=head2 Master's degree
+
+=head3 2014 - 2016 (Database Administration and WEB Technologies)
+
+Defended the Master thesis "SQLite replicator for UNIX O/S".
+
+=head2 Master's degree
+
+=head3 2012 - 2014 (Psychological Counseling)
+
+Defended the Master thesis "Coping Behaviour of Adolescents with
+Different Views on Educational Tactics of the Mother in Complete and
+Incomplete Families.
+
+=cut
+
+# vim:sw=2:ts=2:sts=2:et:cc=72:tw=70
+# End of file.

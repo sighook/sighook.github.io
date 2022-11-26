@@ -1,0 +1,155 @@
+=pod
+
+=encoding UTF-8
+
+=head1 About
+
+The main purpose of this page is to get in some place the most I'm involved in.
+
+=head1 Security
+
+=head2 CVE
+
+=over
+
+=item L<https://nvd.nist.gov/vuln/detail/CVE-2020-36420>
+
+=item L<https://nvd.nist.gov/vuln/detail/CVE-2021-31799>
+
+=item L<https://nvd.nist.gov/vuln/detail/CVE-2021-31810>
+
+=item L<https://nvd.nist.gov/vuln/detail/CVE-2021-32066>
+
+=back
+
+=head2 Wireshark
+
+ $ git -C ~/Upstream/wireshark shortlog --author=chinarulezzz --author='Alexandr Savca'
+ Alexandr Savca (7):
+     packet-tns: add TNS_TYPE_DATA functions dissection.
+     packet-tns: add Set Protocol dissection.
+     packet-tns.c: Oracle 12c packet length fix.
+     packet-tns.c: add Version and Services parsing for SNS messages.
+     packet-tns.c: Add Version2 (SQLNET_RETURN_OPI_PARAM)
+     packet-tns.c: Add Sesskey, Auth (SQLNET_RETURN_OPI_PARAM)
+     Fix cppcheck 1.83 warnings
+ 
+ chinarulezzz (6):
+     packet-tns.c: add TODO to TNS Refuse packet dissector
+     packet-pcep.c: opposite inner 'if' condition leads to a dead code block
+     fix link speed indication
+     tools/cppcheck/cppcheck.sh: improve script; add new option: colorize html output
+     remove redundant break statement
+     fix missing parentheses in 'if' statement
+
+=head2 Linux kernel
+
+ $ git -C ~/Upstream/linux shortlog --author='Alexandr Savca'
+
+ Alexandr Savca (1):
+       Input: elan_i2c - add ELAN0618 (Lenovo v330 15IKB) ACPI ID
+
+=over
+
+=item A bunch of patches useful for pentesting purposes:
+
+L<https://github.com/sighook/linux-wifi-pentest-patches>
+
+=item Nethunter Linux Kernel for Xiaomi Redmi Note 4/4X:
+
+L<https://github.com/sighook/mido>
+
+=back
+
+=head2 Pixload
+
+Set of tools for injecting payloads into jpeg/gif/png/bmp/webp images.
+
+L<https://github.com/sighook/pixload>
+
+=head2 Nmap
+
+=over
+
+=item Check for the TNS Poison vulnerability.
+
+L<https://github.com/nmap/nmap/pull/718>
+
+=item Fix for the oracle-tns-version.
+
+L<https://github.com/nmap/nmap/commit/b30c304a2dc440f17c9a3a25061fae5730492ada>
+
+=item Collection of scripts that are unmerged to upstream.
+
+L<https://github.com/sighook/nmap-extra-scripts>
+
+=back
+
+=head2 Aircrack-ng
+
+Unofficial patch: Add manufacturer column to the client list.
+
+L<https://github.com/zeppe-lin/zeppe-lin/tree/master/stuff/aircrack-ng>
+
+=head2 wxp78key
+
+Tiny keylogger for XP/Vista/7/8 with FTP upload.
+
+L<https://github.com/sighook/wxp78key>
+
+=head2 asleap
+
+Improved version of asleap:
+
+ Fixed LEAP attacking
+ Added MSCHAP-v2 authentication verifier
+ Added bruteforce charset option
+ Added username option for MSCHAP-v2 Challenge/Response attack
+
+=head2 gencc
+
+Generate credit card numbers that pass the MOD 10 check (Luhn).
+
+L<https://github.com/sighook/gencc>
+
+=head2 captal
+
+Security auditing and social-engineering research project. Provides the
+flexible, constructor for Wi-Fi/MITM/Phishing and Layer2 attacks.
+
+L<https://github.com/sighook/captal>
+
+=head2 layer234-attack-tools
+
+Set of tools and helpers for attacks on the 2, 3 and 4 layers of the
+ OSI Model. Some of them I adapted from the Net, some I wrote myself,
+some by L<volgk|https://github.com/volgk>.
+
+L<https://github.com/sighook/layer234-attack-tools>
+
+=head2 layer567-attack-tools
+
+Set of tools and helpers for attacks on the 5, 6 and 7 layers of the
+ OSI Model.  Some of them I adapted from the Net, some I wrote myself.
+
+L<https://github.com/sighook/layer567-attack-tools>
+
+=head2 sms
+
+Send SMS via Moldcell and Orange (my national mobile operators).
+Break their captcha on the web portals, and send SMS through TOR.
+
+L<https://github.com/sighook/sms>
+
+P.S. Unusable now, just for educational purposes.
+
+=head1 Desktop Env
+
+KISS GNU/Linux Distro for my daily use. Forked from CRUX.
+
+L<https://github.com/zeppe-lin>
+
+=cut
+
+# vim:sw=2:ts=2:sts=2:et:cc=72:tw=70
+# End of file.

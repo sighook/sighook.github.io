@@ -2,95 +2,179 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-  <title>chinarulezzz's projects</title>
-  <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <link rel="stylesheet" href="style.css">
+<title>projects.html</title>
+<link rel="stylesheet" href="style.css" type="text/css" />
+<meta http-equiv="content-type" content="text/html; charset=utf-8" />
+<link rev="made" href="mailto:root@k4v3r1.nonet" />
 </head>
-<body>
-  <h1 id="About">About</h1>
-  <p>The main purpose of this page is to get in some place the most I&#39;m involved in.</p>
-  <h1 id="Security">Security</h1>
-  <h2 id="CVE">CVE</h2>
-  <p><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-36420">CVE-2020-36420</a></p>
-  <p><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31799">CVE-2021-31799</a></p>
-  <p><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31810">CVE-2021-31810</a></p>
-  <p><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-32066">CVE-2021-32066</a></p>
-  <h2 id="Wireshark">Wireshark</h2>
-  <pre>
-$ git -C ~/Upstream/wireshark shortlog --author=chinarulezzz --author=&#39;Alexandr Savca&#39;
-Alexandr Savca (7):
-    packet-tns: add TNS_TYPE_DATA functions dissection.
-    packet-tns: add Set Protocol dissection.
-    packet-tns.c: Oracle 12c packet length fix.
-    packet-tns.c: add Version and Services parsing for SNS messages.
-    packet-tns.c: Add Version2 (SQLNET_RETURN_OPI_PARAM)
-    packet-tns.c: Add Sesskey, Auth (SQLNET_RETURN_OPI_PARAM)
-    Fix cppcheck 1.83 warnings
 
-chinarulezzz (6):
-    packet-tns.c: add TODO to TNS Refuse packet dissector
-    packet-pcep.c: opposite inner &#39;if&#39; condition leads to a dead code block
-    fix link speed indication
-    tools/cppcheck/cppcheck.sh: improve script; add new option: colorize html output
-    remove redundant break statement
-    fix missing parentheses in &#39;if&#39; statement</pre>
-  <h2 id="Linux-kernel">Linux kernel</h2>
-  <pre>
-$ git -C ~/Upstream/linux shortlog --author=&#39;Alexandr Savca&#39;
+<body>
+
+
+
+<h1 id="About">About</h1>
+
+<p>The main purpose of this page is to get in some place the most I&#39;m involved in.</p>
+
+<h1 id="Security">Security</h1>
+
+<h2 id="CVE">CVE</h2>
+
+<dl>
+
+<dt id="https:-nvd.nist.gov-vuln-detail-CVE-2020-36420"><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-36420">https://nvd.nist.gov/vuln/detail/CVE-2020-36420</a></dt>
+<dd>
+
+</dd>
+<dt id="https:-nvd.nist.gov-vuln-detail-CVE-2021-31799"><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31799">https://nvd.nist.gov/vuln/detail/CVE-2021-31799</a></dt>
+<dd>
+
+</dd>
+<dt id="https:-nvd.nist.gov-vuln-detail-CVE-2021-31810"><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31810">https://nvd.nist.gov/vuln/detail/CVE-2021-31810</a></dt>
+<dd>
+
+</dd>
+<dt id="https:-nvd.nist.gov-vuln-detail-CVE-2021-32066"><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-32066">https://nvd.nist.gov/vuln/detail/CVE-2021-32066</a></dt>
+<dd>
+
+</dd>
+</dl>
+
+<h2 id="Wireshark">Wireshark</h2>
+
+<pre><code> $ git -C ~/Upstream/wireshark shortlog --author=chinarulezzz --author=&#39;Alexandr Savca&#39;
+ Alexandr Savca (7):
+     packet-tns: add TNS_TYPE_DATA functions dissection.
+     packet-tns: add Set Protocol dissection.
+     packet-tns.c: Oracle 12c packet length fix.
+     packet-tns.c: add Version and Services parsing for SNS messages.
+     packet-tns.c: Add Version2 (SQLNET_RETURN_OPI_PARAM)
+     packet-tns.c: Add Sesskey, Auth (SQLNET_RETURN_OPI_PARAM)
+     Fix cppcheck 1.83 warnings
+ 
+ chinarulezzz (6):
+     packet-tns.c: add TODO to TNS Refuse packet dissector
+     packet-pcep.c: opposite inner &#39;if&#39; condition leads to a dead code block
+     fix link speed indication
+     tools/cppcheck/cppcheck.sh: improve script; add new option: colorize html output
+     remove redundant break statement
+     fix missing parentheses in &#39;if&#39; statement</code></pre>
+
+<h2 id="Linux-kernel">Linux kernel</h2>
+
+<pre><code>$ git -C ~/Upstream/linux shortlog --author=&#39;Alexandr Savca&#39;
+
 Alexandr Savca (1):
-      Input: elan_i2c - add ELAN0618 (Lenovo v330 15IKB) ACPI ID</pre>
-  <p><a href="https://github.com/chinarulezzz/linux-wifi-pentest-patches">
-    A bunch of patches useful for pentesting purposes.</a>
-  </p>
-  <p><a href="https://github.com/chinarulezzz/mido">
-    Nethunter Linux Kernel for Xiaomi Redmi Note 4/4X.</a></p>
-  <h2 id="Pixload">Pixload</h2>
-  <p><a href="https://github.com/chinarulezzz/pixload">
-    Set of tools for injecting payloads into jpeg/gif/png/bmp/webp images.</a></p>
-  <h2 id="Nmap">Nmap</h2>
-  <p><a href="https://github.com/nmap/nmap/pull/718">
-    Check for the TNS Poison vulnerability.</a></p>
-  <p><a href="https://github.com/nmap/nmap/commit/b30c304a2dc440f17c9a3a25061fae5730492ada">
-    Fix for the oracle-tns-version.</a></p>
-  <p><a href="https://github.com/chinarulezzz/nmap-extra-scripts">
-    Collection of scripts that are unmerged to upstream.</a></p>
-  <h2 id="Aircrack-ng">Aircrack-ng</h2>
-  <p><a href="https://github.com/zeppe-lin/zeppe-lin/blob/master/extra/aircrack-ng-scm/patches/add-manufacturer-column-to-the-client-list.patch">
-    Unofficial patch: Add manufacturer column to the client list.</a></p>
-  <h2 id="wpx78key">wpx78key</h2>
-  <p><a href="https://github.com/chinarulezzz/wxp78key">
-    Tiny keylogger for XP/Vista/7/8 with FTP upload.</a></p>
-  <h2 id="asleap">asleap</h2>
-  <p>Improved version of asleap:</p>
-  <pre>
-Fixed LEAP attacking
-Adde MSCHAP-v2 authentication verifier
+      Input: elan_i2c - add ELAN0618 (Lenovo v330 15IKB) ACPI ID</code></pre>
+
+<dl>
+
+<dt id="A-bunch-of-patches-useful-for-pentesting-purposes">A bunch of patches useful for pentesting purposes:</dt>
+<dd>
+
+<p><a href="https://github.com/sighook/linux-wifi-pentest-patches">https://github.com/sighook/linux-wifi-pentest-patches</a></p>
+
+</dd>
+<dt id="Nethunter-Linux-Kernel-for-Xiaomi-Redmi-Note-4-4X">Nethunter Linux Kernel for Xiaomi Redmi Note 4/4X:</dt>
+<dd>
+
+<p><a href="https://github.com/sighook/mido">https://github.com/sighook/mido</a></p>
+
+</dd>
+</dl>
+
+<h2 id="Pixload">Pixload</h2>
+
+<p>Set of tools for injecting payloads into jpeg/gif/png/bmp/webp images.</p>
+
+<p><a href="https://github.com/sighook/pixload">https://github.com/sighook/pixload</a></p>
+
+<h2 id="Nmap">Nmap</h2>
+
+<dl>
+
+<dt id="Check-for-the-TNS-Poison-vulnerability">Check for the TNS Poison vulnerability.</dt>
+<dd>
+
+<p><a href="https://github.com/nmap/nmap/pull/718">https://github.com/nmap/nmap/pull/718</a></p>
+
+</dd>
+<dt id="Fix-for-the-oracle-tns-version">Fix for the oracle-tns-version.</dt>
+<dd>
+
+<p><a href="https://github.com/nmap/nmap/commit/b30c304a2dc440f17c9a3a25061fae5730492ada">https://github.com/nmap/nmap/commit/b30c304a2dc440f17c9a3a25061fae5730492ada</a></p>
+
+</dd>
+<dt id="Collection-of-scripts-that-are-unmerged-to-upstream">Collection of scripts that are unmerged to upstream.</dt>
+<dd>
+
+<p><a href="https://github.com/sighook/nmap-extra-scripts">https://github.com/sighook/nmap-extra-scripts</a></p>
+
+</dd>
+</dl>
+
+<h2 id="Aircrack-ng">Aircrack-ng</h2>
+
+<p>Unofficial patch: Add manufacturer column to the client list.</p>
+
+<p><a href="https://github.com/zeppe-lin/zeppe-lin/tree/master/stuff/aircrack-ng">https://github.com/zeppe-lin/zeppe-lin/tree/master/stuff/aircrack-ng</a></p>
+
+<h2 id="wxp78key">wxp78key</h2>
+
+<p>Tiny keylogger for XP/Vista/7/8 with FTP upload.</p>
+
+<p><a href="https://github.com/sighook/wxp78key">https://github.com/sighook/wxp78key</a></p>
+
+<h2 id="asleap">asleap</h2>
+
+<p>Improved version of asleap:</p>
+
+<pre><code>Fixed LEAP attacking
+Added MSCHAP-v2 authentication verifier
 Added bruteforce charset option
-Added username option for MSCHAP-v2 Challenge/Response attack</pre>
-  <h2 id="gencc">gencc</h2>
-  <p><a href="https://github.com/chinarulezzz/gencc">
-  Generate credit card numbers that pass the MOD 10 check (Luhn).</a></p>
-  <h2 id="captal">captal</h2>
-  <p><a href="https://github.com/chinarulezzz/captal">
-  Security auditing and social-engineering research project. Provides the flexible,
-  constructor for Wi-Fi/MITM/Phishing and Layer2 attacks.</a></p>
-  <h2 id="pentestuff">pentestuff</h2>
-  <p><a href="https://github.com/chinarulezzz/pentestuff">
-    Various pentesting scripts.</a></p>
-  <h2 id="sms">sms</h2>
-  <p><a href="https://github.com/chinarulezzz/sms">
-    Send SMS via Moldcell and Orange (my national mobile operators).
-    Break their captcha on the web portals, and send SMS through TOR.</a></p>
-  <p>P.S. AFAIK, at now Orange uses js to generate user content.</p>
-  <h1 id="Desktop-Env">Desktop Env</h1>
-  <h2 id="zeppe-lin">zeppe-lin</h2>
-  <p><a href="https://github.com/zeppe-lin">
-    KISS GNU/Linux Distro for my daily use. Forked from CRUX.</a></p>
-  <hr/>
-  <p>See <a href="https://github.com/chinarulezzz">my github profile</a> for
-  more projects, forks and stuff.</a></p>
-  </body>
+Added username option for MSCHAP-v2 Challenge/Response attack</code></pre>
+
+<h2 id="gencc">gencc</h2>
+
+<p>Generate credit card numbers that pass the MOD 10 check (Luhn).</p>
+
+<p><a href="https://github.com/sighook/gencc">https://github.com/sighook/gencc</a></p>
+
+<h2 id="captal">captal</h2>
+
+<p>Security auditing and social-engineering research project. Provides the flexible, constructor for Wi-Fi/MITM/Phishing and Layer2 attacks.</p>
+
+<p><a href="https://github.com/sighook/captal">https://github.com/sighook/captal</a></p>
+
+<h2 id="layer234-attack-tools">layer234-attack-tools</h2>
+
+<p>Set of tools and helpers for attacks on the 2, 3 and 4 layers of the OSI Model. Some of them I adapted from the Net, some I wrote myself, some by <a href="https://github.com/volgk">volgk</a>.</p>
+
+<p><a href="https://github.com/sighook/layer234-attack-tools">https://github.com/sighook/layer234-attack-tools</a></p>
+
+<h2 id="layer567-attack-tools">layer567-attack-tools</h2>
+
+<p>Set of tools and helpers for attacks on the 5, 6 and 7 layers of the OSI Model. Some of them I adapted from the Net, some I wrote myself.</p>
+
+<p><a href="https://github.com/sighook/layer567-attack-tools">https://github.com/sighook/layer567-attack-tools</a></p>
+
+<h2 id="sms">sms</h2>
+
+<p>Send SMS via Moldcell and Orange (my national mobile operators). Break their captcha on the web portals, and send SMS through TOR.</p>
+
+<p><a href="https://github.com/sighook/sms">https://github.com/sighook/sms</a></p>
+
+<p>P.S. Unusable now, just for educational purposes.</p>
+
+<h1 id="Desktop-Env">Desktop Env</h1>
+
+<p>KISS GNU/Linux Distro for my daily use. Forked from CRUX.</p>
+
+<p><a href="https://github.com/zeppe-lin">https://github.com/zeppe-lin</a></p>
+
+
+</body>
+
 </html>
 
-<!-- vim:sw=2:ts=2:sts=2:et:cc=80
-End of file. -->
+
