@@ -14,33 +14,33 @@ protocols, and low-level systems work.
 
 =over
 
-=item * CVE-2020-36420
+=item * CVE-2020-36420 (remote)
 
 Polipo: denial of service via malformed HTTP Range header
 
 L<https://nvd.nist.gov/vuln/detail/CVE-2020-36420>
 
-=item * CVE-2021-38614
+=item * CVE-2021-38614 (remote)
 
 Polipo: heap buffer overflow triggered by malformed Range handling
 
 L<https://nvd.nist.gov/vuln/detail/CVE-2021-38614>
 
-=item * CVE-2021-31799
+=item * CVE-2021-31799 (local)
 
 Ruby RDoc: command injection via specially crafted filenames during
 documentation generation
 
 L<https://nvd.nist.gov/vuln/detail/CVE-2021-31799>
 
-=item * CVE-2021-31810
+=item * CVE-2021-31810 (remote)
 
 Ruby Net::FTP: PASV response not validated, allowing
 attacker-controlled connection targets and port scanning
 
 L<https://nvd.nist.gov/vuln/detail/CVE-2021-31810>
 
-=item * CVE-2021-32066
+=item * CVE-2021-32066 (remote, MITM)
 
 Ruby Net::IMAP: STARTTLS failures were not handled, enabling StartTLS
 stripping and downgrade to plaintext
