@@ -14,31 +14,50 @@
 
 <h1 id="About">About</h1>
 
-<p>The main purpose of this page is to get in some place the most I&#39;m involved in.</p>
+<p>This page summarizes projects and upstream contributions I have been involved in, primarily in the areas of security research, network protocols, and low-level systems work.</p>
 
-<h1 id="Security">Security</h1>
+<h1 id="Security-Research">Security Research</h1>
 
-<h2 id="CVE">CVE</h2>
+<h2 id="CVE-disclosures">CVE disclosures</h2>
 
-<dl>
+<ul>
 
-<dt id="https:-nvd.nist.gov-vuln-detail-CVE-2020-36420"><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-36420">https://nvd.nist.gov/vuln/detail/CVE-2020-36420</a></dt>
-<dd>
+<li><p>CVE-2020-36420</p>
 
-</dd>
-<dt id="https:-nvd.nist.gov-vuln-detail-CVE-2021-31799"><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31799">https://nvd.nist.gov/vuln/detail/CVE-2021-31799</a></dt>
-<dd>
+<p>Polipo: denial of service via malformed HTTP Range header</p>
 
-</dd>
-<dt id="https:-nvd.nist.gov-vuln-detail-CVE-2021-31810"><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31810">https://nvd.nist.gov/vuln/detail/CVE-2021-31810</a></dt>
-<dd>
+<p><a href="https://nvd.nist.gov/vuln/detail/CVE-2020-36420">https://nvd.nist.gov/vuln/detail/CVE-2020-36420</a></p>
 
-</dd>
-<dt id="https:-nvd.nist.gov-vuln-detail-CVE-2021-32066"><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-32066">https://nvd.nist.gov/vuln/detail/CVE-2021-32066</a></dt>
-<dd>
+</li>
+<li><p>CVE-2021-38614</p>
 
-</dd>
-</dl>
+<p>Polipo: heap buffer overflow triggered by malformed Range handling</p>
+
+<p><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-38614">https://nvd.nist.gov/vuln/detail/CVE-2021-38614</a></p>
+
+</li>
+<li><p>CVE-2021-31799</p>
+
+<p>Ruby RDoc: command injection via specially crafted filenames during documentation generation</p>
+
+<p><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31799">https://nvd.nist.gov/vuln/detail/CVE-2021-31799</a></p>
+
+</li>
+<li><p>CVE-2021-31810</p>
+
+<p>Ruby Net::FTP: PASV response not validated, allowing attacker-controlled connection targets and port scanning</p>
+
+<p><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-31810">https://nvd.nist.gov/vuln/detail/CVE-2021-31810</a></p>
+
+</li>
+<li><p>CVE-2021-32066</p>
+
+<p>Ruby Net::IMAP: STARTTLS failures were not handled, enabling StartTLS stripping and downgrade to plaintext</p>
+
+<p><a href="https://nvd.nist.gov/vuln/detail/CVE-2021-32066">https://nvd.nist.gov/vuln/detail/CVE-2021-32066</a></p>
+
+</li>
+</ul>
 
 <h2 id="Wireshark">Wireshark</h2>
 
@@ -62,14 +81,18 @@
 
 <h2 id="Linux-kernel">Linux kernel</h2>
 
+<p>Upstream contribution to input subsystem hardware support.</p>
+
 <pre><code>$ git -C ~/Upstream/linux shortlog --author=&#39;Alexandr Savca&#39;
 
 Alexandr Savca (1):
       Input: elan_i2c - add ELAN0618 (Lenovo v330 15IKB) ACPI ID</code></pre>
 
+<p>Additional kernel-related work:</p>
+
 <dl>
 
-<dt id="A-bunch-of-patches-useful-for-pentesting-purposes">A bunch of patches useful for pentesting purposes:</dt>
+<dt id="Wireless-and-kernel-patches-used-in-penetration-testing">Wireless and kernel patches used in penetration testing:</dt>
 <dd>
 
 <p><a href="https://github.com/sighook/linux-wifi-pentest-patches">https://github.com/sighook/linux-wifi-pentest-patches</a></p>

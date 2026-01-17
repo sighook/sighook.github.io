@@ -4,21 +4,48 @@
 
 =head1 About
 
-The main purpose of this page is to get in some place the most I'm involved in.
+This page summarizes projects and upstream contributions I have been
+involved in, primarily in the areas of security research, network
+protocols, and low-level systems work.
 
-=head1 Security
+=head1 Security Research
 
-=head2 CVE
+=head2 CVE disclosures
 
 =over
 
-=item L<https://nvd.nist.gov/vuln/detail/CVE-2020-36420>
+=item * CVE-2020-36420
 
-=item L<https://nvd.nist.gov/vuln/detail/CVE-2021-31799>
+Polipo: denial of service via malformed HTTP Range header
 
-=item L<https://nvd.nist.gov/vuln/detail/CVE-2021-31810>
+L<https://nvd.nist.gov/vuln/detail/CVE-2020-36420>
 
-=item L<https://nvd.nist.gov/vuln/detail/CVE-2021-32066>
+=item * CVE-2021-38614
+
+Polipo: heap buffer overflow triggered by malformed Range handling
+
+L<https://nvd.nist.gov/vuln/detail/CVE-2021-38614>
+
+=item * CVE-2021-31799
+
+Ruby RDoc: command injection via specially crafted filenames during
+documentation generation
+
+L<https://nvd.nist.gov/vuln/detail/CVE-2021-31799>
+
+=item * CVE-2021-31810
+
+Ruby Net::FTP: PASV response not validated, allowing
+attacker-controlled connection targets and port scanning
+
+L<https://nvd.nist.gov/vuln/detail/CVE-2021-31810>
+
+=item * CVE-2021-32066
+
+Ruby Net::IMAP: STARTTLS failures were not handled, enabling StartTLS
+stripping and downgrade to plaintext
+
+L<https://nvd.nist.gov/vuln/detail/CVE-2021-32066>
 
 =back
 
@@ -44,14 +71,18 @@ The main purpose of this page is to get in some place the most I'm involved in.
 
 =head2 Linux kernel
 
+Upstream contribution to input subsystem hardware support.
+
  $ git -C ~/Upstream/linux shortlog --author='Alexandr Savca'
 
  Alexandr Savca (1):
        Input: elan_i2c - add ELAN0618 (Lenovo v330 15IKB) ACPI ID
 
+Additional kernel-related work:
+
 =over
 
-=item A bunch of patches useful for pentesting purposes:
+=item Wireless and kernel patches used in penetration testing:
 
 L<https://github.com/sighook/linux-wifi-pentest-patches>
 
