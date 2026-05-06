@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="assets/favicon.png" sizes="192x192">
+  <title>Research — Alexandr Savca</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">sighook.im</a></h1>&nbsp;
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="cv.html">CV</a>
+      <a href="key.html">PGP</a>
+    </nav>
+  </header>
+
+  <main>
+    <h1 id="research">Research</h1>
+    <p>This page summarizes vulnerability research, protocol analysis,
+    and upstream contributions. The focus is on practical findings,
+    correctness improvements, and integration into widely used
+    tools.</p>
+    <hr />
+    <h2 id="vulnerability-research-cve">Vulnerability Research
+    (CVE)</h2>
+    <table>
+    <colgroup>
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    <col style="width: 33%" />
+    </colgroup>
+    <thead>
+    <tr>
+    <th>CVE</th>
+    <th>Vector</th>
+    <th>Summary</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+    <td>CVE-2020-36420</td>
+    <td>Remote</td>
+    <td>Polipo denial of service via malformed HTTP Range header</td>
+    </tr>
+    <tr>
+    <td>CVE-2021-38614</td>
+    <td>Remote</td>
+    <td>Polipo heap buffer overflow in Range handling</td>
+    </tr>
+    <tr>
+    <td>CVE-2021-31799</td>
+    <td>Local</td>
+    <td>Ruby RDoc command injection via crafted filenames</td>
+    </tr>
+    <tr>
+    <td>CVE-2021-31810</td>
+    <td>Remote</td>
+    <td>Ruby Net::FTP PASV response abuse (connection redirection /
+    scanning)</td>
+    </tr>
+    <tr>
+    <td>CVE-2021-32066</td>
+    <td>MITM</td>
+    <td>Ruby Net::IMAP STARTTLS stripping due to improper failure
+    handling</td>
+    </tr>
+    </tbody>
+    </table>
+    <hr />
+    <h2 id="protocol-analysis-wireshark-contributions">Protocol Analysis
+    &amp; Wireshark Contributions</h2>
+    <p>Work focused on reverse engineering and improving Oracle TNS
+    protocol support in Wireshark.</p>
+    <h3 id="highlights">Highlights</h3>
+    <ul>
+    <li>Added DATA message dissection helpers</li>
+    <li>Implemented Set Protocol parsing</li>
+    <li>Fixed Oracle 12c packet length handling</li>
+    <li>Added SNS message parsing (Version, Services)</li>
+    <li>Extended authentication and session key handling</li>
+    <li>Static analysis cleanup</li>
+    </ul>
+    <p>This work improved correctness and visibility of TNS traffic in
+    real-world analysis scenarios.</p>
+    <hr />
+    <h2 id="linux-kernel-contribution">Linux Kernel Contribution</h2>
+    <ul>
+    <li>Input: <code>elan_i2c</code> — added support for ELAN0618
+    (Lenovo V330-15IKB)</li>
+    </ul>
+    <p><a href="https://github.com/sighook/lwpp">Additional work</a>
+    includes custom kernel patches for wireless security testing and
+    device-specific kernel modifications.</p>
+    <hr />
+    <h2 id="tooling-contributions">Tooling Contributions</h2>
+    <h3 id="nmap">Nmap</h3>
+    <ul>
+    <li>NSE script for Oracle TNS poisoning detection</li>
+    <li>Fixes for TNS version detection</li>
+    <li>Additional experimental NSE scripts</li>
+    </ul>
+    <h3 id="aircrack-ng">Aircrack-ng</h3>
+    <ul>
+    <li>Patch adding manufacturer identification to client listings</li>
+    </ul>
+    <hr />
+    <h2 id="notes">Notes</h2>
+    <p>Most work here originates from practical research: protocol
+    behavior under edge conditions, real attack surfaces, and toolchain
+    gaps discovered during testing.</p>
+  </main>
+
+  <footer>
+    <p>© 2026 Alexandr Savca. Generated with Pandoc.</p>
+  </footer>
+</body>
+</html>

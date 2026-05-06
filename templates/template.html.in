@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="assets/favicon.png" sizes="192x192">
+  <title>$title$</title>
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+  <header>
+    <h1><a href="index.html">sighook.im</a></h1>&nbsp;
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="research.html">Research</a>
+      <a href="projects.html">Projects</a>
+      <a href="cv.html">CV</a>
+      <a href="key.html">PGP</a>
+    </nav>
+  </header>
+
+  <main>
+    $body$
+  </main>
+
+  <footer>
+    <p>© 2026 Alexandr Savca. Generated with Pandoc.</p>
+  </footer>
+</body>
+</html>

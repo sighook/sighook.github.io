@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://sighook.im/about.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sighook.im/cv.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sighook.im/index.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://sighook.im/key.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sighook.im/projects.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://sighook.im/research.html</loc>
+    <lastmod>2026-05-06</lastmod>
+    <priority>0.7</priority>
+  </url>
+</urlset>

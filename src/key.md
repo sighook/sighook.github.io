@@ -1,9 +1,24 @@
-=pod
+---
+title: PGP Key --- Alexandr Savca
+---
 
-=encoding UTF-8
+# PGP Key
 
- >>> gpg --keyserver keyserver.ubuntu.com --recv-keys 59ec1986fbd902cf
+For encrypted communication and responsible disclosure.
 
+---
+
+## Retrieve Key
+
+```sh
+gpg --keyserver keyserver.ubuntu.com --recv-keys 59ec1986fbd902cf
+```
+
+---
+
+## Public Key
+
+```
  -----BEGIN PGP PUBLIC KEY BLOCK-----
  
  mQENBFq+QgQBCADW52hQ0aRC/tqvQPPPSCdbBFjKPKKrS1l1sbjOtQKLoZwfsnuu
@@ -35,8 +50,4 @@
  lgLES/Ed
  =U0Dk
  -----END PGP PUBLIC KEY BLOCK-----
-
-=cut
-
-# vim:sw=2:ts=2:sts=2:et:cc=72:tw=70
-# End of file.
+```
