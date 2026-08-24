@@ -23,6 +23,23 @@ integration into widely used tools.
 
 ---
 
+## Systems Analysis & Methodology
+
+### The Fieldbook
+
+[The Fieldbook](https://github.com/zeppe-lin/fieldbook), *Applied
+Cybernetic Necromancy in Haunted Infrastructure*, is a technical book
+on failure analysis and repair in long-lived infrastructure.
+
+It develops a field method around semantic authority, contracts and
+invariants, boundary failure, artifact truth, semantic drift, folklore,
+institutional memory, intervention, verification, and durable findings.
+The method treats technical components and operators as one coupled
+system and asks where an operation's meaning is actually enforced when
+its representations disagree.
+
+---
+
 ## Protocol Analysis & Wireshark Contributions
 
 Work focused on reverse engineering and improving Oracle TNS protocol
