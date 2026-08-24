@@ -38,6 +38,11 @@ The method treats technical components and operators as one coupled
 system and asks where an operation's meaning is actually enforced when
 its representations disagree.
 
+This is also the method I use in security work: read the implementation,
+identify authority and trust boundaries, test the invariants those
+boundaries are supposed to enforce, and include operational practice
+and institutional memory when they materially shape system behavior.
+
 ---
 
 ## Protocol Analysis & Wireshark Contributions
