@@ -69,7 +69,24 @@ kernel modifications.
 
 ---
 
-## Tooling Contributions
+## Additional Accepted Upstream Work
+
+### Perl 5
+
+Documentation corrections were accepted across several core POD
+documents; I am listed in Perl's upstream `AUTHORS` file.
+
+[Accepted changes](https://github.com/Perl/perl5/commit/dabde021f60e09a0d267e2c1d21905e88314056d)
+
+Other small accepted fixes include `va_list` cleanup in
+[XMRig](https://github.com/xmrig/xmrig/pull/559), a memory leak fix in
+[zlog](https://github.com/HardySimpson/zlog/pull/106), and a broken
+brute-force invocation in
+[XSStrike](https://github.com/s0md3v/XSStrike/pull/197).
+
+---
+
+## Research & Submitted Patches
 
 ### Nmap
 
