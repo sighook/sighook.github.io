@@ -4,7 +4,7 @@ title: Curriculum Vitae --- Alexandr Savca
 
 # Alexandr Savca
 
-Application Security Engineer and Systems Programmer.
+Security Engineer and Systems Programmer.
 
 ---
 
@@ -25,7 +25,9 @@ Application Security Engineer and Systems Programmer.
 Author of [The Fieldbook](https://github.com/zeppe-lin/fieldbook), a
 technical book on systems failure analysis: semantic authority,
 contracts and invariants, boundary failure, semantic drift, failure
-autopsy, intervention, verification, and repair.
+autopsy, intervention, verification, and repair. It treats technical
+components, operators, and institutional memory as one coupled system
+when they materially affect how the system fails or remains secure.
 
 ---
 
