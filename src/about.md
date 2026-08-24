@@ -4,9 +4,9 @@ title: About --- Alexandr Savca
 
 # About
 
-I am an application security engineer and systems programmer working at
-the intersection of source-code review, low-level software, network
-protocols, and vulnerability research.
+I am a security engineer and systems programmer working across
+application security, vulnerability research, low-level systems, and
+network protocols.
 
 My work focuses on understanding how systems actually behave under
 real conditions --- by reading implementations, tracing data and
@@ -20,6 +20,7 @@ to establish the missing behavior before drawing conclusions.
 
 - Application security and source-code review
 - Vulnerability research and adversarial testing
+- Security architecture and failure analysis
 - Low-level systems (Linux, kernel interfaces, performance tuning)
 - Network protocols and traffic analysis
 - Security tooling and automation
@@ -29,6 +30,9 @@ to establish the missing behavior before drawing conclusions.
 ## Approach
 
 - Inspect implementations before inferring behavior
+- Trace authority, trust, and state across architectural boundaries
+- Treat technical components, operators, and institutional knowledge as
+  part of the security system when they materially affect behavior
 - Reproducible research and verifiable results
 - Reverse engineer when source or protocol semantics are unavailable
 - Upstream-first contributions where possible
