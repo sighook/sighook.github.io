@@ -4,9 +4,9 @@ title: Home --- Alexandr Savca
 
 # Alexandr Savca
 
-Application security engineer and systems programmer focused on
-source-code review, vulnerability research, low-level software, and
-network protocols.
+Security engineer and systems programmer focused on source-code
+review, vulnerability research, low-level software, and network
+protocols.
 My work combines implementation review, vulnerability research, upstream
 engineering, and analysis of authority and failure boundaries in
 complex systems.
@@ -34,6 +34,11 @@ complex systems.
 [The Fieldbook](https://github.com/zeppe-lin/fieldbook) is a technical
 book on semantic authority, contracts and invariants, system drift,
 failure autopsy, and repair of long-lived infrastructure.
+
+The same method informs my security work: establish where authority
+lives, trace trust and state across boundaries, test the invariants those
+boundaries are supposed to enforce, and account for operator practice
+and institutional memory when they materially affect system behavior.
 
 *Applied Cybernetic Necromancy in Haunted Infrastructure.*
 
