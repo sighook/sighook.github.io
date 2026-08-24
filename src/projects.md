@@ -14,12 +14,21 @@ experimental work.
 ### Zeppe-Lin
 
 Source-based GNU/Linux distribution and ongoing systems engineering
-project derived from CRUX.
+project derived from CRUX. The native package stack is decomposed into
+contract-oriented components separating execution, application, durable
+state, resolution, reconciliation, and platform mechanisms.
 
-- Minimal, operator-controlled base system
-- Package-management and build architecture
-- Low-level execution, state, and transaction tooling
-- Contract- and integration-focused testing
+Representative current work:
+
+- [libpkgexec-linux](https://github.com/zeppe-lin/libpkgexec-linux) ---
+  Linux execution backends with explicit isolation and resource contracts
+- [libpkgapply](https://github.com/zeppe-lin/libpkgapply) and
+  [libpkgapply-posix](https://github.com/zeppe-lin/libpkgapply-posix) ---
+  application, recovery, and POSIX mutation mechanisms
+- [pkgctl](https://github.com/zeppe-lin/pkgctl) --- package control plane
+  composing the native package-management boundaries
+- [zeppe-lin-system](https://github.com/zeppe-lin/zeppe-lin-system) ---
+  product composition and bootstrap
 
 <https://github.com/zeppe-lin>
 
