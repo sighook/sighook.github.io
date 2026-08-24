@@ -4,9 +4,10 @@ title: Home --- Alexandr Savca
 
 # Alexandr Savca
 
-Systems programmer and security researcher focused on low-level
-software, network protocols, and vulnerability research.
-My work combines reverse engineering, vulnerability research, upstream
+Application security engineer and systems programmer focused on
+source-code review, vulnerability research, low-level software, and
+network protocols.
+My work combines implementation review, vulnerability research, upstream
 engineering, and analysis of authority and failure boundaries in
 complex systems.
 
