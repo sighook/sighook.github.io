@@ -4,7 +4,7 @@ title: Curriculum Vitae --- Alexandr Savca
 
 # Alexandr Savca
 
-Systems Programmer and Information Security Engineer.
+Application Security Engineer and Systems Programmer.
 
 ---
 
@@ -34,6 +34,7 @@ autopsy, intervention, verification, and repair.
 ### Information Security Engineer (Freelance)
 **Jan 2020 – Present**
 
+- Perform source-code review and application security assessments
 - Conduct penetration testing and vulnerability research
 - Develop exploit code and verification tooling
 - Build and maintain security tooling and automation
