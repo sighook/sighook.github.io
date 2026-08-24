@@ -4,16 +4,28 @@ title: Curriculum Vitae --- Alexandr Savca
 
 # Alexandr Savca
 
-Programmer and Information Security Engineer.
+Systems Programmer and Information Security Engineer.
 
 ---
 
 ## Selected Achievements
 
-- Multiple CVE disclosures in network services and libraries
-- Wireshark contributions (Oracle TNS protocol)
-- Linux kernel contribution (input subsystem)
-- Development of security tools and exploit code
+- Five CVE disclosures affecting Ruby libraries and network services
+- Wireshark contributions extending Oracle TNS protocol dissection
+- Linux kernel input subsystem contribution
+- Systems engineering for the [Zeppe-Lin](https://github.com/zeppe-lin)
+  GNU/Linux project
+
+---
+
+## Selected Research & Writing
+
+### The Fieldbook (2026)
+
+Author of [The Fieldbook](https://github.com/zeppe-lin/fieldbook), a
+technical book on systems failure analysis: semantic authority,
+contracts and invariants, boundary failure, semantic drift, failure
+autopsy, intervention, verification, and repair.
 
 ---
 
