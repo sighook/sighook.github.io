@@ -4,12 +4,28 @@ title: Projects --- Alexandr Savca
 
 # Projects
 
-Collection of tools and research-oriented frameworks focused on
-security testing, protocol interaction, and low-level experimentation.
+Selected systems engineering, security research tooling, and earlier
+experimental work.
 
 ---
 
-## Security Tools
+## Systems Engineering
+
+### Zeppe-Lin
+
+Source-based GNU/Linux distribution and ongoing systems engineering
+project derived from CRUX.
+
+- Minimal, operator-controlled base system
+- Package-management and build architecture
+- Low-level execution, state, and transaction tooling
+- Contract- and integration-focused testing
+
+<https://github.com/zeppe-lin>
+
+---
+
+## Security Research & Tooling
 
 ### Pixload
 
@@ -20,20 +36,6 @@ WebP).
 - Useful for testing parser behavior and detection systems
 
 <https://github.com/sighook/pixload>
-
-### captal
-
-Security auditing and social engineering framework.
-
-- Wi-Fi attacks, MITM, phishing scenarios
-- Layer 2 attack simulations
-- Research-oriented tooling
-
-<https://github.com/sighook/captal>
-
----
-
-## Layered Attack Tooling
 
 ### layer234-attack-tools
 
@@ -55,7 +57,34 @@ Utilities for OSI layers 5---7.
 
 ---
 
-## Other Projects
+## Writing
+
+### The Fieldbook
+
+*Applied Cybernetic Necromancy in Haunted Infrastructure.*
+
+A technical book on systems failure analysis: semantic authority,
+contracts and invariants, boundary failure, artifact truth, semantic
+drift, institutional memory, intervention, verification, and repair.
+
+<https://github.com/zeppe-lin/fieldbook>
+
+---
+
+## Earlier Work
+
+Older security research utilities and experimental projects retained as
+part of the public record.
+
+### captal
+
+Security auditing and social engineering framework.
+
+- Wi-Fi attacks, MITM, phishing scenarios
+- Layer 2 attack simulations
+- Research-oriented tooling
+
+<https://github.com/sighook/captal>
 
 ### wxp78key
 
@@ -89,17 +118,3 @@ Research project on SMS submission via web portals.
 - Retained for educational reference
 
 <https://github.com/sighook/sms>
-
----
-
-## Distribution
-
-### Zeppe-Lin
-
-Minimal GNU/Linux distribution derived from CRUX.
-
-- KISS-oriented design
-- Focus on simplicity and control
-- Used as a platform for experimentation
-
-<https://github.com/zeppe-lin>
