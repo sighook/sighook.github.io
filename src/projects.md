@@ -44,7 +44,20 @@ WebP).
 - Embeds arbitrary payloads into image structures
 - Useful for testing parser behavior and detection systems
 
+The repository has about 1,300 stars and 250 forks on GitHub (August
+2026).
+
 <https://github.com/sighook/pixload>
+
+### pdf2hashcat
+
+Maintained Python utility for extracting hashcat-compatible hashes from
+encrypted PDF files.
+
+- Supports PDF 1.1 through 1.7, including standard and AES encryption
+- Pure Python 3 with unit tests
+
+<https://github.com/sighook/pdf2hashcat>
 
 ### layer234-attack-tools
 
