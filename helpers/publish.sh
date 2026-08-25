@@ -10,8 +10,10 @@ MAKE_COMMAND=${3:-make}
 ROOT=$(git rev-parse --show-toplevel)
 cd "$ROOT"
 
-if [ -n "$(git status --porcelain --untracked-files=normal)" ]; then
-	echo 'publish: source worktree is not clean' >&2
+STATUS=$(git status --porcelain --untracked-files=normal)
+if [ -n "$STATUS" ]; then
+	echo 'publish: source worktree is not clean:' >&2
+	printf '%s\n' "$STATUS" >&2
 	exit 1
 fi
 

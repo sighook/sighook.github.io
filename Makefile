@@ -68,7 +68,7 @@ uninstall:
 	rmdir $(DESTDIR)$(WWWDIR)/assets 2>/dev/null || :
 	rmdir $(DESTDIR)$(WWWDIR) 2>/dev/null || :
 
-publish: all
+publish:
 	./helpers/publish.sh '$(PUBLISH_REMOTE)' '$(PUBLISH_BRANCH)' '$(MAKE)'
 
 clean:
