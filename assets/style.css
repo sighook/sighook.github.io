@@ -152,6 +152,11 @@ main h3::before {
 
 /* Text */
 
+.document-link {
+  margin: 0 0 1rem;
+  font-size: 0.85rem;
+}
+
 p {
   margin: 0.9rem 0;
 }

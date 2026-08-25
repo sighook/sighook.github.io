@@ -21,6 +21,9 @@
   </header>
 
   <main>
+$if(pdf-link)$
+    <p class="document-link"><a href="$pdf-link$">PDF version</a></p>
+$endif$
     $body$
   </main>
 

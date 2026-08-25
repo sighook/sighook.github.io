@@ -1,5 +1,6 @@
 ---
 title: Curriculum Vitae --- Alexandr Savca
+pdf-link: cv.pdf
 ---
 
 # Alexandr Savca
