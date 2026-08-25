@@ -60,7 +60,10 @@ uninstall:
 	rmdir $(DESTDIR)$(WWWDIR)/assets 2>/dev/null || :
 	rmdir $(DESTDIR)$(WWWDIR) 2>/dev/null || :
 
+publish: all
+	./helpers/publish.sh '$(PUBLISH_REMOTE)' '$(PUBLISH_BRANCH)' '$(MAKE)'
+
 clean:
 	rm -rf $(BUILDDIR)
 
-.PHONY: all install uninstall clean
+.PHONY: all install uninstall publish clean

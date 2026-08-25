@@ -16,3 +16,7 @@ PDF_ENGINE = xelatex
 PANDOC_PDF_FLAGS = --pdf-engine=$(PDF_ENGINE) --metadata title= \
                    -V geometry:margin=0.65in -V fontsize=10pt \
                    -V colorlinks=true -V urlcolor=blue
+
+# publication
+PUBLISH_REMOTE = origin
+PUBLISH_BRANCH = gh-pages
