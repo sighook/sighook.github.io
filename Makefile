@@ -40,7 +40,21 @@ $(BUILDDIR)/sitemap.xml: helpers/gen_sitemap.sh $(HTML) config.mk
 	mkdir -p $(BUILDDIR)
 	./helpers/gen_sitemap.sh '$(SITE_DOMAIN)' $(BUILDDIR) $@
 
+install: all
+	mkdir -p $(DESTDIR)$(WWWDIR)/assets
+	cp -f $(HTML) $(META) $(DESTDIR)$(WWWDIR)/
+	cp -f $(ASSETS) $(DESTDIR)$(WWWDIR)/assets/
+
+uninstall:
+	cd $(DESTDIR)$(WWWDIR) && \
+		rm -f about.html cv.html index.html key.html projects.html research.html \
+		       CNAME robots.txt sitemap.xml
+	rm -f $(DESTDIR)$(WWWDIR)/assets/favicon.png \
+	      $(DESTDIR)$(WWWDIR)/assets/style.css
+	rmdir $(DESTDIR)$(WWWDIR)/assets 2>/dev/null || :
+	rmdir $(DESTDIR)$(WWWDIR) 2>/dev/null || :
+
 clean:
 	rm -rf $(BUILDDIR)
 
-.PHONY: all clean
+.PHONY: all install uninstall clean
