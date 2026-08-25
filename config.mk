@@ -7,6 +7,7 @@ WWWDIR = /var/www/$(SITE_DOMAIN)
 
 # tools
 PANDOC = pandoc
+SHA256 = sha256sum
 
 # HTML generation
 PANDOC_HTML_FLAGS = --standalone --template=templates/template.html.in
