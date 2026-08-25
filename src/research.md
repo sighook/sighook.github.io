@@ -78,10 +78,10 @@ kernel modifications.
 
 ### Perl 5
 
-Documentation corrections were accepted across several core POD
-documents; I am listed in Perl's upstream `AUTHORS` file.
+Accepted fixes in core C sources and documentation, including interpreter,
+regex, and portability code; I am listed in Perl's upstream `AUTHORS` file.
 
-[Accepted changes](https://github.com/Perl/perl5/commit/dabde021f60e09a0d267e2c1d21905e88314056d)
+[Upstream commits](https://github.com/Perl/perl5/commits?author=sighook)
 
 Other small accepted fixes include `va_list` cleanup in
 [XMRig](https://github.com/xmrig/xmrig/pull/559), a memory leak fix in
