@@ -1,23 +1,46 @@
-CNAME = sighook.im
-MD = $(wildcard src/*.md)
-HTML = $(patsubst src/%.md, %.html, $(MD))
+include config.mk
 
-all: $(HTML) robots.txt sitemap.xml CNAME
+HTML = $(BUILDDIR)/about.html \
+       $(BUILDDIR)/cv.html \
+       $(BUILDDIR)/index.html \
+       $(BUILDDIR)/key.html \
+       $(BUILDDIR)/projects.html \
+       $(BUILDDIR)/research.html
 
-%.html: src/%.md templates/template.html.in
-	pandoc $< -o $@ --standalone \
-		--template=templates/template.html.in
+ASSETS = $(BUILDDIR)/assets/favicon.png \
+         $(BUILDDIR)/assets/style.css
 
-robots.txt: ./helpers/gen_robots.sh $(HTML)
-	./helpers/gen_robots.sh $(CNAME)
+META = $(BUILDDIR)/CNAME \
+       $(BUILDDIR)/robots.txt \
+       $(BUILDDIR)/sitemap.xml
 
-sitemap.xml: ./helpers/gen_sitemap.sh $(HTML)
-	./helpers/gen_sitemap.sh $(CNAME)
+all: $(HTML) $(ASSETS) $(META)
 
-CNAME:
-	echo $(CNAME) > CNAME
+$(BUILDDIR)/%.html: src/%.md templates/template.html.in
+	mkdir -p $(BUILDDIR)
+	$(PANDOC) $(PANDOC_HTML_FLAGS) $< -o $@
+
+$(BUILDDIR)/assets/favicon.png: assets/favicon.png
+	mkdir -p $(BUILDDIR)/assets
+	cp -f $< $@
+
+$(BUILDDIR)/assets/style.css: assets/style.css
+	mkdir -p $(BUILDDIR)/assets
+	cp -f $< $@
+
+$(BUILDDIR)/CNAME: config.mk
+	mkdir -p $(BUILDDIR)
+	printf '%s\n' '$(SITE_DOMAIN)' > $@
+
+$(BUILDDIR)/robots.txt: helpers/gen_robots.sh config.mk
+	mkdir -p $(BUILDDIR)
+	./helpers/gen_robots.sh '$(SITE_DOMAIN)' $@
+
+$(BUILDDIR)/sitemap.xml: helpers/gen_sitemap.sh $(HTML) config.mk
+	mkdir -p $(BUILDDIR)
+	./helpers/gen_sitemap.sh '$(SITE_DOMAIN)' $(BUILDDIR) $@
 
 clean:
-	rm -f *.html robots.txt sitemap.xml CNAME
+	rm -rf $(BUILDDIR)
 
 .PHONY: all clean
