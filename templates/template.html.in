@@ -3,14 +3,18 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
+$if(description)$
+  <meta name="description" content="$description$">
+$endif$
   <link rel="icon" type="image/png" href="assets/favicon.png" sizes="192x192">
   <title>$title$</title>
   <link rel="stylesheet" href="assets/style.css">
 </head>
-<body>
+<body$if(page-class)$ class="$page-class$"$endif$>
+  <a class="skip-link" href="#content">Skip to content</a>
   <header>
-    <h1><a href="index.html">sighook.im</a></h1>&nbsp;
-    <nav>
+    <h1><a href="index.html">sighook.im</a></h1>
+    <nav aria-label="Primary">
       <a href="index.html">Home</a>
       <a href="about.html">About</a>
       <a href="research.html">Research</a>
@@ -20,9 +24,9 @@
     </nav>
   </header>
 
-  <main>
+  <main id="content">
 $if(pdf-link)$
-    <p class="document-link"><a href="$pdf-link$">PDF version</a></p>
+    <p class="document-link"><a href="$pdf-link$"$if(pdf-download-name)$ download="$pdf-download-name$"$endif$>Download PDF</a></p>
 $endif$
     $body$
   </main>

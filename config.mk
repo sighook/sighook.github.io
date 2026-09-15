@@ -15,6 +15,9 @@ PANDOC_HTML_FLAGS = --standalone --template=templates/template.html.in
 # PDF generation
 PDF_ENGINE = xelatex
 PANDOC_PDF_FLAGS = --pdf-engine=$(PDF_ENGINE) --metadata title= \
+                   -V title-meta='Alexandr Savca - Security Engineer' \
+                   -V author-meta='Alexandr Savca' \
+                   -V subject='Curriculum Vitae' \
                    -V geometry:margin=0.65in -V fontsize=10pt \
                    -V colorlinks=true -V urlcolor=blue
 

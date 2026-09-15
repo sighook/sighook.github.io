@@ -297,3 +297,121 @@ footer {
     padding: 0.45rem;
   }
 }
+
+/* Keyboard navigation */
+
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: -10000px;
+  padding: 0.6rem 0.8rem;
+  color: var(--bg);
+  background: var(--h-color);
+  z-index: 10;
+}
+
+.skip-link:focus {
+  left: 0;
+}
+
+/* CV */
+
+body.cv {
+  --max-width: 78ch;
+}
+
+.cv .document-link {
+  float: right;
+  margin: 0 0 0.8rem 1rem;
+  font-weight: 600;
+}
+
+.cv main h1,
+.cv main h2,
+.cv main h3 {
+  letter-spacing: 0;
+}
+
+.cv main h1::before,
+.cv main h2::before,
+.cv main h3::before {
+  content: none;
+}
+
+.cv main > h1 {
+  border-bottom: 0;
+  margin-bottom: 0.2rem;
+  padding-bottom: 0;
+}
+
+.cv main h2 {
+  margin-top: 1.7rem;
+}
+
+.cv main h3 {
+  margin-bottom: 0.15rem;
+}
+
+.cv main h3 + p {
+  margin-top: 0;
+}
+
+.cv main ul {
+  margin-top: 0.45rem;
+}
+
+/* Printing */
+
+@media print {
+  @page {
+    margin: 0.65in;
+  }
+
+  body {
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    color: #000000;
+    background: #ffffff;
+    font-size: 10pt;
+    line-height: 1.35;
+  }
+
+  body.cv header,
+  body.cv footer,
+  body.cv .document-link,
+  .skip-link {
+    display: none;
+  }
+
+  body.cv main h1,
+  body.cv main h2,
+  body.cv main h3 {
+    break-after: avoid;
+    color: #000000;
+  }
+
+  body.cv main h1,
+  body.cv main h2 {
+    border-color: #b8b8b8;
+  }
+
+  body.cv p,
+  body.cv li {
+    orphans: 2;
+    widows: 2;
+  }
+
+  body.cv li {
+    break-inside: avoid;
+  }
+
+  body.cv a {
+    color: #000000;
+    text-decoration: none;
+  }
+
+  body.cv hr {
+    margin: 1.2rem auto;
+  }
+}
