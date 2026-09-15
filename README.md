@@ -3,20 +3,36 @@
 Source for [sighook.im](https://sighook.im/).
 
 The source branch contains Markdown, templates, styles, and build helpers only.
-Generated HTML, metadata, and the CV PDF are written to `build/`.
+Generated HTML, metadata, and the CV PDF are deployment artifacts; they are not
+committed to the source branch.
 
-## Build
+## Publish
 
-Requirements:
+Publication runs entirely in GitHub Actions. Edit the source, commit it, and push
+`master`. The `Deploy GitHub Pages` workflow then:
 
-- `make`
-- `pandoc`
-- XeLaTeX (`xelatex`) for `cv.pdf`
+- starts an Ubuntu runner;
+- installs Pandoc, XeLaTeX, and the validation tools;
+- builds and checks the exact public-file manifest;
+- uploads the verified artifact to GitHub Pages; and
+- deploys it to the protected `github-pages` environment.
 
-Build the complete publishable tree:
+No Pandoc or TeX installation is required on the editing machine.
+
+Before the first deployment, select **Settings → Pages → Build and deployment →
+Source → GitHub Actions** in the repository. Subsequent pushes to `master` deploy
+automatically. A deployment can also be started manually from the Actions tab.
+
+## Optional local check
+
+Local generation is useful for previewing or debugging, but it is not part of the
+publication path. It requires `make`, `pandoc`, XeLaTeX, `xmllint`, `pdfinfo`, and
+`pdftotext`.
+
+Build and validate the complete publishable tree:
 
 ```sh
-make
+make clean check
 ```
 
 Remove generated output:
@@ -25,7 +41,7 @@ Remove generated output:
 make clean
 ```
 
-## Install
+## Optional staged install
 
 The default web root is `/var/www/sighook.im`. Staged installs follow the usual
 `DESTDIR` contract:
@@ -36,17 +52,7 @@ make install DESTDIR="$pkgdir"
 
 `WWWDIR` may be overridden when a different final web root is required.
 
-## Publish
+## Retire the old branch
 
-`make publish` builds the current source, installs the explicit public-file
-manifest into a temporary Git worktree for the `gh-pages` branch, commits the
-resulting exact snapshot, and pushes the branch to `origin`.
-
-```sh
-make publish
-```
-
-The source worktree must be clean. `PUBLISH_REMOTE` and `PUBLISH_BRANCH` may be
-overridden from `make` when necessary.
-
-GitHub Pages should be configured to serve the root of the `gh-pages` branch.
+After the first Actions deployment succeeds and the live site is verified, the
+old `gh-pages` branch is no longer a publication source and may be deleted.
