@@ -93,50 +93,13 @@ drift, institutional memory, intervention, verification, and repair.
 
 ---
 
-## Earlier Work
+## Historical Research Archive
 
-Older security research utilities and experimental projects retained as
-part of the public record.
+Earlier experimental security projects are retained in their source
+repositories and Git history as part of the public research record.
+They explored controlled protocol, wireless, validation, and
+security-testing environments, but are not presented here as current
+professional tools.
 
-### captal
-
-Security auditing and social engineering framework.
-
-- Wi-Fi attacks, MITM, phishing scenarios
-- Layer 2 attack simulations
-- Research-oriented tooling
-
-<https://github.com/sighook/captal>
-
-### wxp78key
-
-Tiny keylogger for XP/Vista/7/8 with FTP upload.
-
-<https://github.com/sighook/wxp78key>
-
-### asleap (extended)
-
-Enhanced LEAP attack implementation.
-
-- Corrected attack logic
-- Added MSCHAPv2 verification
-- Configurable bruteforce support
-
-<https://github.com/sighook/asleap>
-
-### gencc
-
-Credit card number generator (Luhn-valid).
-
-- Useful for testing validation systems
-
-<https://github.com/sighook/gencc>
-
-### sms (deprecated)
-
-Research project on SMS submission via web portals.
-
-- Included captcha bypass analysis
-- Retained for educational reference
-
-<https://github.com/sighook/sms>
+The maintained and representative work above is the portfolio intended
+for current engineering and security roles.
