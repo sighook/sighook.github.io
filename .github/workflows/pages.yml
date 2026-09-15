@@ -31,6 +31,7 @@ jobs:
           sudo apt-get update
           sudo apt-get install --no-install-recommends --yes \
             libxml2-utils \
+            lmodern \
             make \
             pandoc \
             poppler-utils \
