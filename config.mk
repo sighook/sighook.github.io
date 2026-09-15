@@ -3,6 +3,7 @@ SITE_DOMAIN = sighook.im
 
 # paths
 BUILDDIR = build
+WORKDIR = .build
 WWWDIR = /var/www/$(SITE_DOMAIN)
 
 # tools
@@ -20,7 +21,3 @@ PANDOC_PDF_FLAGS = --pdf-engine=$(PDF_ENGINE) --metadata title= \
                    -V subject='Curriculum Vitae' \
                    -V geometry:margin=0.65in -V fontsize=10pt \
                    -V colorlinks=true -V urlcolor=blue
-
-# publication
-PUBLISH_REMOTE = origin
-PUBLISH_BRANCH = gh-pages

@@ -11,11 +11,12 @@ ASSETS = $(BUILDDIR)/assets/favicon.png \
          $(BUILDDIR)/assets/style.css
 
 META = $(BUILDDIR)/CNAME \
+       $(BUILDDIR)/.nojekyll \
        $(BUILDDIR)/robots.txt \
        $(BUILDDIR)/sitemap.xml
 
 PDF = $(BUILDDIR)/cv.pdf
-PDF_HEADER = $(BUILDDIR)/cv-pdf-header.tex
+PDF_HEADER = $(WORKDIR)/cv-pdf-header.tex
 
 all: $(HTML) $(ASSETS) $(META) $(PDF)
 
@@ -35,6 +36,10 @@ $(BUILDDIR)/CNAME: config.mk
 	mkdir -p $(BUILDDIR)
 	printf '%s\n' '$(SITE_DOMAIN)' > $@
 
+$(BUILDDIR)/.nojekyll:
+	mkdir -p $(BUILDDIR)
+	: > $@
+
 $(BUILDDIR)/robots.txt: helpers/gen_robots.sh config.mk
 	mkdir -p $(BUILDDIR)
 	./helpers/gen_robots.sh '$(SITE_DOMAIN)' $@
@@ -44,7 +49,7 @@ $(BUILDDIR)/sitemap.xml: helpers/gen_sitemap.sh $(HTML) config.mk
 	./helpers/gen_sitemap.sh '$(SITE_DOMAIN)' $(BUILDDIR) $@
 
 $(PDF_HEADER): src/cv.md config.mk
-	mkdir -p $(BUILDDIR)
+	mkdir -p $(WORKDIR)
 	id=`$(SHA256) $< | cut -c1-32`; \
 		printf '\\special{pdf:trailerid [<%s> <%s>]}\n' "$$id" "$$id" > $@
 
@@ -54,6 +59,9 @@ $(BUILDDIR)/cv.pdf: src/cv.md $(PDF_HEADER) config.mk
 		SOURCE_DATE_EPOCH=$${SOURCE_DATE_EPOCH:-$$epoch} \
 		$(PANDOC) $(PANDOC_PDF_FLAGS) --include-in-header=$(PDF_HEADER) $< -o $@
 
+check: all
+	./helpers/check_build.sh $(BUILDDIR)
+
 install: all
 	mkdir -p $(DESTDIR)$(WWWDIR)/assets
 	cp -f $(HTML) $(META) $(PDF) $(DESTDIR)$(WWWDIR)/
@@ -62,16 +70,13 @@ install: all
 uninstall:
 	cd $(DESTDIR)$(WWWDIR) && \
 		rm -f about.html cv.html index.html key.html projects.html research.html \
-		       CNAME robots.txt sitemap.xml cv.pdf
+		       .nojekyll CNAME robots.txt sitemap.xml cv.pdf
 	rm -f $(DESTDIR)$(WWWDIR)/assets/favicon.png \
 	      $(DESTDIR)$(WWWDIR)/assets/style.css
 	rmdir $(DESTDIR)$(WWWDIR)/assets 2>/dev/null || :
 	rmdir $(DESTDIR)$(WWWDIR) 2>/dev/null || :
 
-publish:
-	./helpers/publish.sh '$(PUBLISH_REMOTE)' '$(PUBLISH_BRANCH)' '$(MAKE)'
-
 clean:
-	rm -rf $(BUILDDIR)
+	rm -rf $(BUILDDIR) $(WORKDIR)
 
-.PHONY: all install uninstall publish clean
+.PHONY: all check install uninstall clean
