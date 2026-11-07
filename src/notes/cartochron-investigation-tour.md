@@ -1,6 +1,6 @@
 ---
 title: 'Cartochron: reading recorded locations without inventing movement'
-description: A practical synthetic Cartochron walkthrough covering recording runs, gaps, receipt times, route comparisons, and evidence limits.
+description: A practical Cartochron GPSD setup, with synthetic recordings, route comparisons, and a few curious ants.
 date: 2026-11-07
 note: true
 root: ../
@@ -9,20 +9,29 @@ page-class: note
 
 # Cartochron: reading recorded locations without inventing movement
 
-I built [Cartochron](https://github.com/cartochron/cartochron) to keep
-location observations inspectable without quietly turning them into a story
-about continuous movement. It stores received positions in SQLite and displays
-them on a Leaflet map, with separate recording runs and the provenance needed
-to interpret them.
+Imagine watching an anthill for a month. The little bastards have their
+routines: same paths, same corners, occasional expeditions into unknown
+territory.
 
-A line on a map is a display of reports. It is not proof that someone
-travelled along every metre of the line, or that two recordings which cross
-represent a meeting. Here is a way to explore that distinction without using
-a real device or collecting anyone's location.
+Now suppose two trails cross. Did the ants meet? Were they there five
+minutes apart? Three days? Did one take a completely different route while
+nobody was watching?
 
-## Run the synthetic investigation
+I got curious about questions like these. Except my ants have Android phones.
 
-With Python 3 and the project's build prerequisites installed:
+So I wrote [Cartochron](https://github.com/cartochron/cartochron): a small
+Python receiver, SQLite database, and Leaflet map for collecting location
+observations and poking around their history.
+
+Not another GPS dashboard. I wanted to look back through recordings, compare
+different runs, find recurring places, and examine where two sets of
+observations come close in space and time.
+
+Preferably without the map inventing adventures between two GPS fixes.
+
+## First, some imaginary ants
+
+Before involving real phones, try the included demonstration:
 
 ```sh
 git clone https://github.com/cartochron/cartochron.git
@@ -30,74 +39,173 @@ cd cartochron
 make demo
 ```
 
-Open <http://127.0.0.1:8877/>. The demo starts a local receiver with a
-temporary SQLite database, synthetic observations, and a prepared example
-annotation. It does not connect to a phone or touch an existing recording.
-The database is removed when the demo stops. The first run also downloads and
-verifies the pinned Leaflet assets if they are not already present.
+Open <http://127.0.0.1:8877/>.
 
-## First: inspect what the receiver actually knows
+The demo has several synthetic recordings: different routes, stale positions,
+missing intervals, and a couple of suspiciously convenient crossings.
 
-In **Monitor**, select an acquisition channel. It follows the newest recording
-run associated with that channel, but it does not merge separate runs into
-one. A recent receipt says that the receiver obtained a report recently; it
-does not establish that a device is currently connected or that the reported
-position was measured at the same time.
+Try `demo-oneplus-morning` in **History**. There's a gap in the recording.
+Inspect its endpoints; the map doesn't know what happened in between.
 
-Switch to **History** and open `demo-oneplus-morning`. The history stays tied
-to that run, even when another run appears on the same channel. A gap of more
-than ten minutes between received fixes is shown as a break. The viewer must
-not fill the unobserved interval with invented travel.
+Then compare `demo-oneplus-evening` with `demo-lg-evening`. Look at the
+reported coordinates and their receipt times. For a different kind of
+coincidence, compare routes that cross geographically but were recorded at
+different times.
 
-## Second: separate geography from time
+There's more under **Compare routes**, **What was here?**, and the history
+overlap searches. The in-app **Guide** explains the controls.
 
-Open **Compare routes** and place more than one run on the map. A useful
-counterexample is to compare a run that passes through a location with another
-recording from a different time. The paths may cross spatially, without the
-receipts overlapping at all.
+All synthetic. Nobody's actual movements, no private locations, and no
+unfortunate neighbour accidentally becoming a research specimen.
 
-Use **Shared time** to inspect the recorded fixes near the same time. A
-candidate fix is shown only while it falls within the tool's five-minute
-freshness window; no positions are interpolated. The spatial crossing remains
-visible, but its interpretation changes once time is considered.
+## The receiver
 
-For a positive *candidate*, compare `demo-oneplus-evening` with
-`demo-lg-evening` using **Where did two recordings overlap?**. Inspect the
-100-metre / 5-minute witness and its linked example note. The result is a
-pair of reported observations close in place and receipt time, not verified
-co-presence of physical devices.
+For longer recordings, I use Docker Compose with a persistent SQLite database.
 
-## Third: understand the limits of the view
+From the Cartochron checkout:
 
-Use **What was here?** to inspect displayed observations near a chosen point.
-That operation works against tracks currently loaded in the browser. It is
-not a search over every observation in the database. History is paginated,
-and partial results remain explicitly marked as partial.
+```sh
+install -d -m 700 data
 
-Three distinctions matter throughout the interface:
+( umask 077; printf 'operator:%s\n' \
+    "$(openssl rand -hex 32)" > data/auth )
 
-- **Source or channel versus run:** configured acquisition identities are
-  operator assertions; a run is one bounded recording episode.
-- **Receipt time versus measurement time:** the server can prove when it
-  received a report, not necessarily when a producer measured the position.
-- **Observation versus movement:** the route is built from samples; gaps and
-  inferred travel remain uncertain.
+( umask 077; printf 'CARTOCHRON_UID=%s\nCARTOCHRON_GID=%s\n' \
+    "$(id -u)" "$(id -g)" > .env )
 
-## From a demonstration to an actual receiver
+docker compose up --build -d
+```
 
-For persistent, locally held observations, the project documents a SQLite
-path and an optional authenticated Docker Compose deployment. Data acquisition
-is deliberately separate: the
-[GPSD adapter](https://github.com/cartochron/cartochron-gpsd) and
-[Metasploit adapter](https://github.com/cartochron/cartochron-metasploit)
-submit observations through the receiver's HTTP contract. They do not define
-what the map is allowed to infer.
+Open <http://127.0.0.1:8765/> and use the credentials from `data/auth`.
 
-The [investigation walkthrough](https://github.com/cartochron/cartochron/blob/master/docs/walkthrough.md),
-[handbook](https://github.com/cartochron/cartochron/blob/master/docs/handbook.md),
-and the in-app **Guide** explain the full exercises and the current controls.
-The example here needs neither a GPS feed nor a Metasploit session.
+That's the receiver. It stores observations in `data/observations.sqlite3`,
+serves the map, and survives container restarts without losing the recording
+history.
 
-The receiver handles sensitive location records. Run it and its adapters only
-for devices and investigations you own or are explicitly authorized to
-operate; protect recordings, backups, and credentials accordingly.
+It listens on host loopback. If you want it on a VPS, put HTTPS in front of
+it rather than exposing the backend and its Basic-auth credentials over the
+Internet.
+
+## Feed the beast
+
+Cartochron doesn't care where an observation came from, provided an adapter
+speaks its HTTP API.
+
+For ordinary GPS recording, there's
+[cartochron-gpsd](https://github.com/cartochron/cartochron-gpsd). It reads
+GPSD reports and forwards valid position fixes to the receiver.
+
+The Android side is familiar from my
+[Kismet wardriving setup](wardriving-kismet-gpsd.html): install
+[GPSd Forwarder](https://f-droid.org/en/packages/io.github.tiagoshibata.gpsdclient/)
+or [gpsdRelay](https://f-droid.org/en/packages/io.github.project_kaat.gpsdrelay/)
+from F-Droid on a spare phone. gpsdRelay has a configurable *NMEA generation
+interval* (in milliseconds), worth trying for longer recordings. It controls
+requested GPS location updates, but raw NMEA sentences can still be relayed
+as they arrive; check the actual sampling and battery use on your phone.
+
+One phone works. Two are more interesting.
+
+```text
+Android phone A --- UDP/29998 ---+
+                                 |
+Android phone B --- UDP/29999 ---+-- GPSD
+                                      |
+                                cartochron-gpsd
+                                      |
+                                      v
+                               Cartochron
+                                SQLite + map
+```
+
+Clone the adapter alongside the receiver:
+
+```sh
+cd ..
+git clone https://github.com/cartochron/cartochron-gpsd.git
+cd cartochron-gpsd
+
+cp sources.toml.example sources.toml
+cp .env.example .env
+```
+
+The sample `sources.toml` already contains two input channels. Change their
+names if you like, and assign each phone its own UDP port.
+
+In `.env`, set `GPSD_BIND_IP` to the laptop's address reachable by the phones,
+and set `COLLECTOR_UID` and `COLLECTOR_GID` to your `id -u` and `id -g` values.
+The collector uses the receiver's private authentication file from the sibling
+checkout.
+
+Then:
+
+```sh
+make check-config
+docker compose up --build -d
+docker compose exec gpsd gpspipe -w -n 30
+```
+
+Configure each phone's forwarder with the corresponding host address and UDP
+port. Check that GPSD is actually receiving valid fixes, then watch
+Cartochron's **Monitor**.
+
+A small gotcha: my Kismet wardriving stack uses GPSD ports `2947` and
+`29998` too. Stop that stack before starting this one with the defaults.
+
+Two daemons, one socket. Nobody wins.
+
+The full [GPSD Compose guide](https://github.com/cartochron/cartochron-gpsd/blob/master/docs/compose.md)
+covers enrollment, additional phones, and troubleshooting. Keep the UDP
+inputs on a trusted network: a configured input channel isn't authentication
+of the phone behind it.
+
+## Give it some history
+
+Take the same little circuit a few times, preferably with different stops and
+at different hours. Use your own devices, or devices whose owners have
+explicitly agreed to the recording.
+
+A few days of observations become much more interesting than watching a
+marker move in real time.
+
+In **Monitor**, you can follow the latest run for a channel. In **History**,
+older runs remain separate. Restarting a collector starts a new recording
+rather than stitching yesterday's last coordinate to today's first one.
+
+You can compare routes, inspect individual observations, search a place, or
+look for nearby reports from two different recording runs.
+
+Here's where timestamps become useful. Two paths crossing on a map might be
+interesting. Two reported positions close together within a few minutes are
+more interesting. Neither alone tells us that two people met, but now there's
+something concrete to examine.
+
+Cartochron also keeps the server's receipt time separate from a GPSD-reported
+measurement time. An old position arriving today shouldn't quietly become a
+fresh GPS measurement.
+
+The distinction matters when a feed disconnects, a phone wakes up, or an
+adapter reconnects. Missing observations stay missing. The map doesn't get
+to fill in the blanks just because a straight line looks nicer.
+
+## Other ways to collect
+
+There's also [cartochron-metasploit](https://github.com/cartochron/cartochron-metasploit),
+an adapter for authorized Android Meterpreter sessions.
+
+It uses the session's reported network-provider location rather than GPSD.
+Those positions may be cached, and their original measurement time is unknown.
+Useful for certain laboratory experiments, but not something to confuse with
+a fresh GPS fix.
+
+The receiver and both adapters are independent repositories. The
+[Cartochron handbook](https://github.com/cartochron/cartochron/blob/master/docs/handbook.md)
+has the detailed investigation workflows; the
+[operations guide](https://github.com/cartochron/cartochron/blob/master/docs/operations.md)
+covers backups, authentication, and deployment.
+
+Keep the recordings and database private. A month's location history is
+rather more personal than the cute little dots suggest.
+
+And as for our ants? We can keep watching. Just don't confuse a crossing on
+the map with a meeting at the anthill.

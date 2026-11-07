@@ -43,9 +43,15 @@ repository. Capture logs survive container restarts.
 
 I'd recommend using a spare Android phone rather than your daily one.
 
-Install [GPSd Forwarder from F-Droid](https://f-droid.org/en/packages/io.github.tiagoshibata.gpsdclient/),
-enable location services, and configure it to send UDP packets to the laptop's
+Install [GPSd Forwarder](https://f-droid.org/en/packages/io.github.tiagoshibata.gpsdclient/)
+or [gpsdRelay](https://f-droid.org/en/packages/io.github.project_kaat.gpsdrelay/)
+from F-Droid. Enable location services and send NMEA over UDP to the laptop's
 tethering IP address on port `29998`.
+
+gpsdRelay also lets you set an *NMEA generation interval* in milliseconds.
+For longer sessions, try a less frequent update and check the resulting GPSD
+feed. The setting controls requested GPS location updates, not every raw NMEA
+sentence, so don't assume it will automatically save battery.
 
 Calls, app switching, background restrictions, and aggressive battery
 management are unnecessary complications during a recording session. A
