@@ -9,15 +9,16 @@ page-class: note
 
 # Cartochron: reading recorded locations without inventing movement
 
-I like watching ants. There's something beautiful about their little
-roads: the usual routes, occasional detours, and busy intersections.
+Imagine watching an anthill for a month. They have their routines: same paths,
+same corners, occasional detours into unknown territory.
 
-We're ants too, in that sense. I'm one of them, just equipped with an Android
-phone and a slightly unhealthy interest in SQLite.
+We’re ants too, in that sense — just equipped with Android phones and an
+unhealthy interest in location telemetry.
 
-Watch those routes for a month and the questions get interesting. Do we keep
-taking the same circuits? When two trails cross, were we actually there at
-the same time?
+Watch those routes long enough and the questions get interesting. Do we keep
+taking the exact same circuits? When two trails cross, were we actually there
+at the same time, or did one of us pass through five minutes later while nobody
+was watching?
 
 So I wrote [Cartochron](https://github.com/cartochron/cartochron): a small
 Python receiver, SQLite database, and Leaflet map for collecting location
