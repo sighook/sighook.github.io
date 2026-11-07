@@ -13,5 +13,6 @@ Subscribe via [RSS](feed.xml).
 
 ## 2026
 
+- **7 November** — [Wardriving with Kismet and GPSD](notes/wardriving-kismet-gpsd.html). A portable Kismet capture setup with GPSD, a spare Android phone, and optional Kismon.
 - **7 November** — [Four security fixes in Kismet 2026-10-R1](notes/kismet-2026-security-fixes.html). Packet-field boundaries, web-root containment, and stalled HTTP connections.
 - **7 November** — [Cartochron: reading recorded locations without inventing movement](notes/cartochron-investigation-tour.html). A synthetic investigation with runs, gaps, time overlap, and provenance.

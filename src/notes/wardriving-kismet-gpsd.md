@@ -1,0 +1,101 @@
+---
+title: Wardriving with Kismet and GPSD
+description: A practical Docker Compose wardriving setup with Kismet, GPSD, an Android phone, and optional Kismon.
+date: 2026-11-07
+note: true
+root: ../
+page-class: note
+---
+
+# Wardriving with Kismet and GPSD
+
+I wanted a portable wardriving setup without installing half the universe on
+my laptop.
+
+[Kismet](https://www.kismetwireless.net/) captures Wi-Fi traffic, GPSD receives
+coordinates from an Android phone, and [Kismon](https://github.com/Kismon/kismon)
+provides an optional map and signal graphs. Docker Compose keeps the
+dependencies and configuration together.
+
+The setup is available at
+[kismet-gpsd-setup](https://github.com/sighook/kismet-gpsd-setup), with
+installation instructions and troubleshooting notes.
+
+## The plumbing
+
+```text
+Android phone
+    | NMEA / UDP 29998
+    v
+   GPSD ---- TCP 2947 ----> Kismet ---> recordings
+                              |
+                              +----> Kismon
+```
+
+Kismet uses the host's wireless adapter in monitor mode. GPSD receives NMEA
+sentences from the phone, preferably over USB tethering. The Kismet web
+interface is available on port 2501, and Kismon connects to it separately.
+
+The Docker image installs Kismet `2026-10-R1` from the official package
+repository. Capture logs survive container restarts.
+
+## Give the old phone a job
+
+I'd recommend using a spare Android phone rather than your daily one.
+
+Install [GPSd Forwarder from F-Droid](https://f-droid.org/en/packages/io.github.tiagoshibata.gpsdclient/),
+enable location services, and configure it to send UDP packets to the laptop's
+tethering IP address on port `29998`.
+
+Calls, app switching, background restrictions, and aggressive battery
+management are unnecessary complications during a recording session. A
+dedicated phone can stay connected, powered, and doing exactly one job.
+
+Even an old Android handset is perfectly useful here, provided it can acquire
+a GPS fix and forward it reliably.
+
+Not a bad retirement.
+
+## Before heading outside
+
+Start the containers:
+
+```sh
+docker compose --profile gui up --build -d
+```
+
+Check the GPS feed:
+
+```sh
+docker compose exec gpsd gpsmon localhost:2947
+```
+
+Then open Kismet at <http://127.0.0.1:2501/> and verify that the wireless
+adapter is capturing and the GPS source has a valid fix.
+
+A few things worth remembering:
+
+- USB tethering provides a direct network connection without involving the
+  capture adapter.
+- Android battery optimization can interfere with background forwarding.
+  Check the app's battery settings.
+- If GPS updates stop, check Kismet's logs. In my test, it detected and
+  reported the missing GPSD updates.
+- Kismon is optional. The recording should not depend on the GUI.
+- Keep capture logs and location history private. They're stored under
+  `data/kismet_logs/`.
+
+## On the road
+
+<!-- Add sanitized Kismet screenshot: active Wi-Fi capture and GPS status. -->
+<!-- Add sanitized Kismon screenshot: recorded networks on the map. -->
+
+The important part is having the actual capture and its location data
+available afterward, not merely a nice-looking map during the drive.
+
+For setup details, configuration, and common failures, see the
+[repository README](https://github.com/sighook/kismet-gpsd-setup).
+
+That's the whole arrangement. A Wi-Fi adapter, an old phone, a few containers,
+and considerably less dependency archaeology next time I need to go
+wardriving.
