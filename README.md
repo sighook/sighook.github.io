@@ -46,7 +46,25 @@ Before the first deployment, select **Settings → Pages → Build and deploymen
 Source → GitHub Actions** in the repository. Subsequent pushes to `master` deploy
 automatically. A deployment can also be started manually from the Actions tab.
 
-## Optional local check
+## Local preview with Docker Compose
+
+Only Docker Engine and the Compose plugin are required on the host. The
+container has the same Pandoc/TeX toolchain as the deployment workflow; it
+builds and validates the complete site before serving anything.
+
+```sh
+docker compose up --build
+```
+
+Open <http://127.0.0.1:8000/>. After editing Markdown or CSS, rebuild the
+preview with `docker compose restart site`. Stop it with Ctrl-C, or run
+`docker compose down` if started in the background.
+
+The checkout is mounted **read-only** and generated files stay inside the
+container. The preview listens on host loopback only, not the public network.
+The canonical URLs in RSS and the sitemap still point to `sighook.im`.
+
+## Optional local check (without Docker)
 
 Local generation is useful for previewing or debugging, but it is not part of the
 publication path. It requires `make`, Python 3, `pandoc`, XeLaTeX, `xmllint`, `pdfinfo`, and
