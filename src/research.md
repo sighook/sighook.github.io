@@ -39,12 +39,29 @@ the public CVE records, not to a claimed upstream fix.
 
 ## Upstream engineering {#upstream-engineering}
 
-### Wireshark — Oracle TNS
+### Wireshark — Oracle TNS and dissector fixes
 
-Contributions to Oracle TNS dissection, including DATA and Set Protocol
-handling, Oracle 12c packet lengths, SNS messages, and authentication and
-session-key parsing. The work was aimed at making more of the protocol
-visible in packet captures.
+Most of my Wireshark work began with Oracle TNS (2016–2017): making more
+of the SQL*Net/Net8 and OCI exchanges readable in packet captures, beyond
+identifying the outer packet type. The main changes were:
+
+- **DATA messages:** [SQL*Net function IDs and OCI subfunctions](https://github.com/wireshark/wireshark/commit/4f684a606226bee6381285388e3b28f06975f1f4),
+  followed by [Set Protocol request and partial response dissection](https://github.com/wireshark/wireshark/commit/cd4540b260040f08a5e814fab4c60e001501f8cb).
+- **Framing and negotiation:** [Oracle 12c packet-length handling](https://github.com/wireshark/wireshark/commit/104b1029486e3a656c9abefa733bc038563afa43)
+  and [SNS version and services fields](https://github.com/wireshark/wireshark/commit/031db50c64995d0879b77570f562c0eb98d52e4a).
+- **Session setup:** [OPI Version2 response parsing](https://github.com/wireshark/wireshark/commit/f27734f3a2747a150a6bc4d22bb2d212a8322c63)
+  and [session-key and authentication parameter fields](https://github.com/wireshark/wireshark/commit/9b008282c4ee79c696d435a42af7243c20482a40).
+
+Later patches (2018) covered [PCEP XRO length handling](https://github.com/wireshark/wireshark/commit/89076e6a5d7f44d9cd2ce0f38ba359417091df26),
+[NetMon link-speed formatting](https://github.com/wireshark/wireshark/commit/40de0010bb302a8dedd3d4ad6aa75da8f27a297c),
+and [undefined signed shifts found by cppcheck](https://github.com/wireshark/wireshark/commit/b545c60658143a730619df7b6c6f6df2f22e6398)
+across several dissectors. Smaller maintenance changes addressed
+[cppcheck HTML output](https://github.com/wireshark/wireshark/commit/dfb92c2a1d200f777322f532e377bfd8eb1865a8),
+[conditional macro syntax](https://github.com/wireshark/wireshark/commit/ec0f8e6c36f16ca0f7eeb712f823f857468ff6d9),
+and [redundant `break` statements](https://github.com/wireshark/wireshark/commit/993b47eb400e9a9aa79e22f9fb0fc5da4e45f978).
+A separate [TNS Refuse note](https://github.com/wireshark/wireshark/commit/cca3c926c8256d4573d1b6ddb0e24f46220bba57)
+recorded an unverified observation for future investigation; it did not
+implement additional parsing.
 
 ### Linux kernel
 
