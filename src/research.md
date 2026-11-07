@@ -41,9 +41,12 @@ the public CVE records, not to a claimed upstream fix.
 
 ### Wireshark — Oracle TNS and dissector fixes
 
-Most of my Wireshark work began with Oracle TNS (2016–2017): making more
-of the SQL*Net/Net8 and OCI exchanges readable in packet captures, beyond
-identifying the outer packet type. The main changes were:
+My Oracle TNS work grew out of professional deep packet inspection (DPI)
+development in 2016–2017. I reverse-engineered parts of the TNS/SQL\*Net
+wire protocol from packet captures, then contributed the resulting protocol
+knowledge and dissector improvements upstream to Wireshark. The changes
+made more of the SQL\*Net/Net8 and OCI exchanges readable, beyond identifying
+the outer packet type:
 
 - **DATA messages:** [SQL*Net function IDs and OCI subfunctions](https://github.com/wireshark/wireshark/commit/4f684a606226bee6381285388e3b28f06975f1f4),
   followed by [Set Protocol request and partial response dissection](https://github.com/wireshark/wireshark/commit/cd4540b260040f08a5e814fab4c60e001501f8cb).

@@ -49,8 +49,9 @@ validation, remediation, and security tooling.
 - Contributed four security fixes to Kismet 2026-10-R1 covering packet
   parsing boundaries and HTTP handling
   ([technical note](https://sighook.im/notes/kismet-2026-security-fixes.html))
-- Extended Wireshark's Oracle TNS dissector with protocol parsing,
-  authentication, session-key, and packet-handling improvements
+- Reverse-engineered parts of Oracle TNS/SQL\*Net for deep packet
+  inspection (DPI) work; contributed protocol dissector improvements
+  upstream to Wireshark
 - Contributed support for ELAN0618 hardware to the Linux kernel input
   subsystem
 - Contributed accepted C and documentation fixes to Perl 5 and am listed
@@ -99,10 +100,10 @@ validation, remediation, and security tooling.
 ### System Programmer (Freelance)
 **Sep 2016 – Feb 2017**
 
-- Reverse engineered network protocols and documented observed behavior
+- Reverse-engineered network protocols for deep packet inspection (DPI),
+  including Oracle TNS/SQL\*Net
 - Developed Zeek (Bro) IDS plugins for protocol visibility and detection
-- Analyzed Oracle TNS traffic and contributed dissector improvements
-  upstream
+- Contributed Oracle TNS dissector improvements upstream to Wireshark
 
 ---
 
