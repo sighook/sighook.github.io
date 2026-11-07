@@ -85,17 +85,10 @@ A few things worth remembering:
 - Keep capture logs and location history private. They're stored under
   `data/kismet_logs/`.
 
-## On the road
+That's the whole arrangement: a Wi-Fi adapter, an old Android phone, GPSD,
+and Kismet in containers. Kismon is there when I want a map.
 
-<!-- Add sanitized Kismet screenshot: active Wi-Fi capture and GPS status. -->
-<!-- Add sanitized Kismon screenshot: recorded networks on the map. -->
-
-The important part is having the actual capture and its location data
-available afterward, not merely a nice-looking map during the drive.
-
-For setup details, configuration, and common failures, see the
-[repository README](https://github.com/sighook/kismet-gpsd-setup).
-
-That's the whole arrangement. A Wi-Fi adapter, an old phone, a few containers,
-and considerably less dependency archaeology next time I need to go
-wardriving.
+The [repository](https://github.com/sighook/kismet-gpsd-setup) contains
+the configuration, setup instructions, and troubleshooting notes.
+Nothing particularly clever, just a working arrangement that's easy to
+reproduce.
