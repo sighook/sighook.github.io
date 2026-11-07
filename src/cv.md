@@ -46,6 +46,9 @@ validation, remediation, and security tooling.
 - Disclosed [five vulnerabilities](https://sighook.im/research.html#vulnerability-research-cve):
   CVE-2020-36420, CVE-2021-38614, CVE-2021-31799,
   CVE-2021-31810, and CVE-2021-32066
+- Contributed four security fixes to Kismet 2026-10-R1 covering packet
+  parsing boundaries and HTTP handling
+  ([technical note](https://sighook.im/notes/kismet-2026-security-fixes.html))
 - Extended Wireshark's Oracle TNS dissector with protocol parsing,
   authentication, session-key, and packet-handling improvements
 - Contributed support for ELAN0618 hardware to the Linux kernel input

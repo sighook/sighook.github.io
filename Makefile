@@ -1,11 +1,10 @@
 include config.mk
 
-HTML = $(BUILDDIR)/about.html \
-       $(BUILDDIR)/cv.html \
-       $(BUILDDIR)/index.html \
-       $(BUILDDIR)/key.html \
-       $(BUILDDIR)/projects.html \
-       $(BUILDDIR)/research.html
+PAGES = about cv index key notes projects research
+HTML = $(addprefix $(BUILDDIR)/,$(addsuffix .html,$(PAGES)))
+NOTE_SOURCES = $(sort $(wildcard src/notes/*.md))
+NOTE_HTML = $(patsubst src/%.md,$(BUILDDIR)/%.html,$(NOTE_SOURCES))
+ALL_HTML = $(HTML) $(NOTE_HTML)
 
 ASSETS = $(BUILDDIR)/assets/favicon.png \
          $(BUILDDIR)/assets/style.css
@@ -13,15 +12,16 @@ ASSETS = $(BUILDDIR)/assets/favicon.png \
 META = $(BUILDDIR)/CNAME \
        $(BUILDDIR)/.nojekyll \
        $(BUILDDIR)/robots.txt \
-       $(BUILDDIR)/sitemap.xml
+       $(BUILDDIR)/sitemap.xml \
+       $(BUILDDIR)/feed.xml
 
 PDF = $(BUILDDIR)/cv.pdf
 PDF_HEADER = $(WORKDIR)/cv-pdf-header.tex
 
-all: $(HTML) $(ASSETS) $(META) $(PDF)
+all: $(ALL_HTML) $(ASSETS) $(META) $(PDF)
 
 $(BUILDDIR)/%.html: src/%.md templates/template.html.in
-	mkdir -p $(BUILDDIR)
+	mkdir -p $(dir $@)
 	$(PANDOC) $(PANDOC_HTML_FLAGS) $< -o $@
 
 $(BUILDDIR)/assets/favicon.png: assets/favicon.png
@@ -44,9 +44,13 @@ $(BUILDDIR)/robots.txt: helpers/gen_robots.sh config.mk
 	mkdir -p $(BUILDDIR)
 	./helpers/gen_robots.sh '$(SITE_DOMAIN)' $@
 
-$(BUILDDIR)/sitemap.xml: helpers/gen_sitemap.sh $(HTML) config.mk
+$(BUILDDIR)/sitemap.xml: helpers/gen_sitemap.sh $(ALL_HTML) config.mk
 	mkdir -p $(BUILDDIR)
 	./helpers/gen_sitemap.sh '$(SITE_DOMAIN)' $(BUILDDIR) $@
+
+$(BUILDDIR)/feed.xml: helpers/gen_feed.py $(NOTE_SOURCES) config.mk
+	mkdir -p $(BUILDDIR)
+	python3 helpers/gen_feed.py $(SITE_DOMAIN) $@ $(NOTE_SOURCES)
 
 $(PDF_HEADER): src/cv.md config.mk
 	mkdir -p $(WORKDIR)
@@ -63,16 +67,19 @@ check: all
 	./helpers/check_build.sh $(BUILDDIR)
 
 install: all
-	mkdir -p $(DESTDIR)$(WWWDIR)/assets
+	mkdir -p $(DESTDIR)$(WWWDIR)/assets $(DESTDIR)$(WWWDIR)/notes
 	cp -f $(HTML) $(META) $(PDF) $(DESTDIR)$(WWWDIR)/
+	cp -f $(NOTE_HTML) $(DESTDIR)$(WWWDIR)/notes/
 	cp -f $(ASSETS) $(DESTDIR)$(WWWDIR)/assets/
 
 uninstall:
 	cd $(DESTDIR)$(WWWDIR) && \
-		rm -f about.html cv.html index.html key.html projects.html research.html \
-		       .nojekyll CNAME robots.txt sitemap.xml cv.pdf
+		rm -f about.html cv.html index.html key.html notes.html projects.html research.html \
+		       .nojekyll CNAME robots.txt sitemap.xml feed.xml cv.pdf
 	rm -f $(DESTDIR)$(WWWDIR)/assets/favicon.png \
 	      $(DESTDIR)$(WWWDIR)/assets/style.css
+	rm -f $(DESTDIR)$(WWWDIR)/notes/*.html
+	rmdir $(DESTDIR)$(WWWDIR)/notes 2>/dev/null || :
 	rmdir $(DESTDIR)$(WWWDIR)/assets 2>/dev/null || :
 	rmdir $(DESTDIR)$(WWWDIR) 2>/dev/null || :
 

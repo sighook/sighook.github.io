@@ -314,6 +314,15 @@ footer {
   left: 0;
 }
 
+/* Notes */
+
+.note-meta {
+  color: var(--fg);
+  opacity: 0.7;
+  font-size: 0.85rem;
+  margin-bottom: 1.25rem;
+}
+
 /* CV */
 
 body.cv {

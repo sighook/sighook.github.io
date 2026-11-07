@@ -11,6 +11,18 @@ integration into widely used tools.
 
 ---
 
+## Recently fixed upstream: Kismet
+
+Four fixes from my October 2026 Kismet review shipped in
+[2026-10-R1](https://kismetwireless.net/posts/kismet-2026-10-r1/):
+PPI GPS bounds, HTTP web-root containment, HTTP request timeouts, and
+Radiotap header bounds. The upstream commits are public; CVE identifiers
+have not been established for these findings.
+
+[Read the technical note](notes/kismet-2026-security-fixes.html).
+
+---
+
 ## Vulnerability Research (CVE)
 
 | CVE | Vector | Summary |
@@ -105,8 +117,7 @@ brute-force invocation in
 
 ---
 
-## Notes
+## Field Notes
 
-Most work here originates from practical research: protocol behavior
-under edge conditions, real attack surfaces, and toolchain gaps
-discovered during testing.
+For detailed investigations, including the Kismet fixes and project-level
+experiments, see [Notes](notes.html) ([RSS](feed.xml)).

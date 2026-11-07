@@ -17,11 +17,18 @@ complex systems.
   protocol and upstream work
 - [Projects](projects.html) --- systems engineering, security tooling,
   and writing
+- [Notes](notes.html) --- research accounts, experiments, and project walkthroughs
+  ([RSS](feed.xml))
 - [Curriculum Vitae](cv.html) --- professional experience and background
 
 ## Selected work
 
 - Five CVE disclosures affecting Ruby libraries and network services
+- Four Kismet security fixes shipped in 2026-10-R1
+  ([research note](notes/kismet-2026-security-fixes.html))
+- [Cartochron](https://github.com/cartochron/cartochron) --- location observation
+  and investigation with explicit provenance
+  ([walkthrough](notes/cartochron-investigation-tour.html))
 - Contributions to Wireshark (Oracle TNS protocol dissection)
 - Linux kernel input subsystem contribution
 - [The Fieldbook](https://github.com/zeppe-lin/fieldbook) --- systems

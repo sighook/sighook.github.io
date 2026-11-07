@@ -25,13 +25,21 @@ assets/favicon.png
 assets/style.css
 cv.html
 cv.pdf
+feed.xml
 index.html
 key.html
+notes.html
 projects.html
 research.html
 robots.txt
 sitemap.xml
 EOF_EXPECTED
+
+for source in src/notes/*.md; do
+	[ -f "$source" ] || continue
+	printf 'notes/%s.html\n' "$(basename "$source" .md)"
+done >> "$CHECK_TMP/expected"
+LC_ALL=C sort -o "$CHECK_TMP/expected" "$CHECK_TMP/expected"
 
 find "$OUTPUT" -type f | sed "s#^$OUTPUT/##" | LC_ALL=C sort > "$CHECK_TMP/actual"
 
@@ -46,14 +54,14 @@ if find "$OUTPUT" -type l -print -quit | grep -q .; then
 	exit 1
 fi
 
-for file in CNAME robots.txt sitemap.xml assets/favicon.png assets/style.css cv.pdf; do
+for file in CNAME robots.txt sitemap.xml feed.xml assets/favicon.png assets/style.css cv.pdf; do
 	if [ ! -s "$OUTPUT/$file" ]; then
 		echo "check-build: empty public file: $file" >&2
 		exit 1
 	fi
 done
 
-for page in about cv index key projects research; do
+for page in about cv index key notes projects research; do
 	html="$OUTPUT/$page.html"
 	if ! grep -Fq '<!doctype html>' "$html" || ! grep -Fq '<html lang="en">' "$html"; then
 		echo "check-build: malformed HTML shell: $page.html" >&2
@@ -76,7 +84,29 @@ if ! grep -Fq 'Sitemap: https://sighook.im/sitemap.xml' "$OUTPUT/robots.txt"; th
 	exit 1
 fi
 
-xmllint --noout "$OUTPUT/sitemap.xml"
+for source in src/notes/*.md; do
+	[ -f "$source" ] || continue
+	page="notes/$(basename "$source" .md).html"
+	if ! grep -Fq '<!doctype html>' "$OUTPUT/$page" ||
+	   ! grep -Fq '<body class="note">' "$OUTPUT/$page"; then
+		echo "check-build: malformed note: $page" >&2
+		exit 1
+	fi
+	if ! grep -Fq "$page" "$OUTPUT/notes.html"; then
+		echo "check-build: note is missing from notes index: $page" >&2
+		exit 1
+	fi
+	if ! grep -Fq "https://sighook.im/$page" "$OUTPUT/sitemap.xml"; then
+		echo "check-build: sitemap entry missing: $page" >&2
+		exit 1
+	fi
+	if ! grep -Fq "https://sighook.im/$page" "$OUTPUT/feed.xml"; then
+		echo "check-build: feed entry missing: $page" >&2
+		exit 1
+	fi
+done
+
+xmllint --noout "$OUTPUT/sitemap.xml" "$OUTPUT/feed.xml"
 
 PDF_PAGES=$(pdfinfo "$OUTPUT/cv.pdf" | awk '/^Pages:/ { print $2 }')
 case "$PDF_PAGES" in

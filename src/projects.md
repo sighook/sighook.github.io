@@ -36,6 +36,20 @@ Representative current work:
 
 ## Security Research & Tooling
 
+### Cartochron
+
+A small Python/SQLite location-observation receiver and Leaflet investigation
+viewer. It distinguishes acquisition channels, sources and individual
+recording runs; keeps receipt times and gaps visible; and supports history,
+route comparison, place inspection and evidence-linked annotations without
+presenting reported coordinates as verified movement.
+
+- [Source and documentation](https://github.com/cartochron/cartochron)
+- [GPSD acquisition adapter](https://github.com/cartochron/cartochron-gpsd)
+- [Metasploit acquisition adapter](https://github.com/cartochron/cartochron-metasploit)
+- [Synthetic investigation walkthrough](notes/cartochron-investigation-tour.html)
+
+
 ### Pixload
 
 Payload injection toolkit for image formats (JPEG, PNG, GIF, BMP,
