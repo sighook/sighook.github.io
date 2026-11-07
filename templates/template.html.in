@@ -14,15 +14,13 @@ $endif$
 <body$if(page-class)$ class="$page-class$"$endif$>
   <a class="skip-link" href="#content">Skip to content</a>
   <header>
-    <h1><a href="$if(root)$$root$$endif$index.html">sighook.im</a></h1>
+    <a class="site-title" href="$if(root)$$root$$endif$index.html">sighook.im</a>
     <nav aria-label="Primary">
-      <a href="$if(root)$$root$$endif$index.html">Home</a>
-      <a href="$if(root)$$root$$endif$about.html">About</a>
       <a href="$if(root)$$root$$endif$research.html">Research</a>
-      <a href="$if(root)$$root$$endif$notes.html">Notes</a>
       <a href="$if(root)$$root$$endif$projects.html">Projects</a>
+      <a href="$if(root)$$root$$endif$notes.html">Notes</a>
+      <a href="$if(root)$$root$$endif$about.html">About</a>
       <a href="$if(root)$$root$$endif$cv.html">CV</a>
-      <a href="$if(root)$$root$$endif$key.html">PGP</a>
     </nav>
   </header>
 
@@ -37,7 +35,13 @@ $endif$
   </main>
 
   <footer>
-    <p>© 2026 Alexandr Savca. Generated with Pandoc.</p>
+    <p>© 2026 Alexandr Savca ·
+      <a href="mailto:alexandr.savca89@gmail.com">Email</a> ·
+      <a href="https://github.com/sighook">GitHub</a> ·
+      <a href="https://linkedin.com/in/alexandr-savca89">LinkedIn</a> ·
+      <a href="$if(root)$$root$$endif$key.html">PGP</a> ·
+      <a href="$if(root)$$root$$endif$feed.xml">RSS</a>
+    </p>
   </footer>
 </body>
 </html>

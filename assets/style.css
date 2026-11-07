@@ -1,7 +1,5 @@
 /* Sighook.im — Minimal UNIX Technical Theme */
 
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Fira+Code:wght@400;500&display=swap');
-
 :root {
   /* Light */
   --bg: #ffffff;
@@ -43,7 +41,7 @@ html {
 }
 
 body {
-  font-family: 'Inter', system-ui, sans-serif;
+  font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
   font-size: var(--fs-base);
   line-height: 1.6;
 
@@ -65,14 +63,11 @@ header {
   margin-bottom: 2rem;
 }
 
-header h1 {
-  font-size: 1.6rem;
-  margin: 0;
-  font-weight: 600;
-}
-
-header h1 a {
+.site-title {
+  display: inline-block;
   color: var(--accent);
+  font-size: 1.45rem;
+  font-weight: 650;
   text-decoration: none;
 }
 
@@ -128,26 +123,6 @@ main h2 {
 
 main h3 {
   font-size: var(--fs-h3);
-}
-
-/* UNIX-style section markers */
-
-main h1::before {
-  content: "# ";
-  font-family: 'Fira Code', monospace;
-  opacity: 0.7;
-}
-
-main h2::before {
-  content: "## ";
-  font-family: 'Fira Code', monospace;
-  opacity: 0.6;
-}
-
-main h3::before {
-  content: "### ";
-  font-family: 'Fira Code', monospace;
-  opacity: 0.5;
 }
 
 /* Text */
@@ -209,7 +184,7 @@ th:nth-child(2) {
 }
 
 td:nth-child(1) {
-  font-family: 'Fira Code', monospace;
+  font-family: 'Fira Code', ui-monospace, SFMono-Regular, Consolas, monospace;
   font-weight: 500;
   color: var(--h-color);
 }
@@ -224,7 +199,7 @@ tr:hover {
 
 code,
 pre {
-  font-family: 'Fira Code', monospace;
+  font-family: 'Fira Code', ui-monospace, SFMono-Regular, Consolas, monospace;
 }
 
 code {
@@ -269,9 +244,13 @@ footer {
   padding-top: 1.2rem;
   border-top: 1px solid var(--border);
   text-align: center;
-  font-family: 'Fira Code', monospace;
-  font-size: 0.75rem;
-  opacity: 0.4;
+  font-size: 0.8rem;
+  color: var(--fg);
+  opacity: 0.75;
+}
+
+footer a {
+  color: inherit;
 }
 
 /* Selection */
