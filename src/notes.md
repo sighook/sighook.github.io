@@ -13,6 +13,8 @@ Subscribe via [RSS](feed.xml).
 
 ## 2026
 
+- **10 November** — [The Map Is Not the Router](notes/nmap-geolite2.html). Offline GeoLite2, a fragile traceroute dependency, and a very old open PR.
+
 - **7 November** — [Four security fixes in Kismet 2026-10-R1](notes/kismet-2026-security-fixes.html). Packet-field boundaries, web-root containment, and stalled HTTP connections.
 
 - **7 November** — [Cartochron: reading recorded locations without inventing movement](notes/cartochron-investigation-tour.html). An ant-sized investigation of routes and coincident reports, plus a practical GPSD recording setup.
