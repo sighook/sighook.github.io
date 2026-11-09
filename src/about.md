@@ -21,10 +21,8 @@ issues. I try to separate the observed failure from its possible impact,
 and a proposed fix from a verified one. When possible, I work with
 maintainers to get the correction upstream.
 
-My main interests are application security, source-code review, protocol
-analysis, vulnerability research, and low-level systems. The details
-are in [Research](research.html) and [Projects](projects.html); my
-employment history is in the [CV](cv.html).
+Selected findings are in [Research](research.html), source code in
+[Projects](projects.html), and employment history in the [CV](cv.html).
 
 I also write about the less tidy side of systems work: assumptions that
 outlive their original code, interfaces that hide who owns a decision,

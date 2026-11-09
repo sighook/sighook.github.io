@@ -10,11 +10,9 @@ implementation, tests, and operating details; this page is a short map.
 
 ## Cartochron
 
-A Python/SQLite receiver and Leaflet viewer for location observations in
-authorized investigations. Separate recording runs remain separate, and
-the interface distinguishes reported coordinates from verified movement.
-History, gaps, receipt times, comparisons, and evidence-linked annotations
-make uncertainty visible instead of hiding it behind a smooth line.
+A Python/SQLite receiver and Leaflet map for recorded location observations
+in authorized investigations. It preserves separate runs, receipt times,
+and gaps, with history searches and cross-run comparisons.
 
 [Source and documentation](https://github.com/cartochron/cartochron) ·
 [Synthetic walkthrough](notes/cartochron-investigation-tour.html) ·
@@ -45,10 +43,3 @@ mutation, durable state, and recovery as separate, testable contracts.
 [Project repositories](https://github.com/zeppe-lin) ·
 [Package control plane](https://github.com/zeppe-lin/pkgctl) ·
 [Linux execution backend](https://github.com/zeppe-lin/libpkgexec-linux)
-
-## Writing
-
-[The Fieldbook](https://github.com/zeppe-lin/fieldbook), *Applied
-Cybernetic Necromancy in Haunted Infrastructure*, is a longer treatment of
-failure analysis, authority boundaries, invariants, and repairs in
-long-lived systems.
