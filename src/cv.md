@@ -57,9 +57,8 @@ validation, and Linux and network systems.
   focusing on authentication, authorization, and data flow
 - Develop reproducible vulnerability tests and document technical impact
   and remediation
-- Build security tools, including
-  [pdf2hashcat](https://github.com/sighook/pdf2hashcat) and
-  [Pixload](https://github.com/sighook/pixload)
+- Develop [Pixload](https://github.com/sighook/pixload) and maintain
+  [pdf2hashcat](https://github.com/sighook/pdf2hashcat), adapted from earlier work
 - Develop and maintain Linux package-management components for
   [Zeppe-Lin](https://github.com/zeppe-lin)
 

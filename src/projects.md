@@ -5,34 +5,56 @@ description: Selected source code and documentation for security tooling and sys
 
 # Projects
 
-A few projects I have built or maintained. The repositories contain the
-implementation, tests, and operating details; this page is a short map.
+A few projects I have built, adapted, or maintained. The repositories have
+implementation details and tests; this page is just a short selection.
 
 ## Cartochron
 
-A Python/SQLite receiver and Leaflet map for recorded location observations
-in authorized investigations. It preserves separate runs, receipt times,
-and gaps, with history searches and cross-run comparisons.
+A Python/SQLite receiver and Leaflet map for investigating recorded location
+observations in authorized research. It keeps runs, receipt times, and gaps
+distinct, with
+history searches and cross-run comparisons.
 
 [Source and documentation](https://github.com/cartochron/cartochron) ·
 [Synthetic walkthrough](notes/cartochron-investigation-tour.html) ·
 [GPSD adapter](https://github.com/cartochron/cartochron-gpsd) ·
 [Metasploit adapter](https://github.com/cartochron/cartochron-metasploit)
 
+## Pixload
+
+Tools for constructing image files with embedded payloads, useful for testing
+file-upload handling, content inspection, and parser assumptions. Supports
+BMP, GIF, JPEG, PNG, and WebP.
+
+[Source](https://github.com/sighook/pixload)
+
+## nmap-extra-nse
+
+Two independently maintained Nmap NSE scripts for offline IP and traceroute
+geolocation, with a Lua GeoLite2 MMDB reader and tests for malformed inputs.
+The results retain location uncertainty; these are not official Nmap scripts.
+
+[Source](https://github.com/sighook/nmap-extra-nse) ·
+[Technical note](notes/nmap-geolite2.html)
+
 ## pdf2hashcat
 
-Python utility for extracting hashcat-compatible hashes from encrypted
-PDF documents. Supports PDF 1.1--1.7 encryption formats and has unit tests.
+Python utility for extracting hashcat-compatible hashes from encrypted PDFs,
+with support for PDF 1.1--1.7 encryption formats and unit tests. Adapted from
+earlier work by Shane Quigley and philsmd; I maintain this version.
 
 [Source](https://github.com/sighook/pdf2hashcat)
 
-## Pixload
+## rawmkit
 
-A toolkit for embedding test payloads in JPEG, PNG, GIF, BMP, and WebP
-files. Useful when investigating how parsers, upload pipelines, and
-content inspection handle image formats.
+A collection of C/X11 desktop components: window management, an experimental
+display manager, session supervision, clipboard history, and password-store
+tools. The components have separate responsibilities, with attention to process
+lifecycles and security boundaries. `rawm` began as a `dwm` derivative.
 
-[Source](https://github.com/sighook/pixload)
+[Repositories](https://github.com/rawmkit) ·
+[Window manager](https://github.com/rawmkit/rawm) ·
+[Display manager](https://github.com/rawmkit/rawmdm)
 
 ## Zeppe-Lin
 
